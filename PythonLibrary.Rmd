@@ -1,0 +1,363 @@
+---
+title: "PythonLibrary"
+author: "C S 303E UT Austin"
+output:
+  html_document: 
+    theme: darkly
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{css, echo=FALSE}
+.watch-out {
+  background-color: black;
+  border: 2px solid grey;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: left;
+  }
+```
+
+***
+
+# **Use word search shortcuts like CTRL+G to find specific functions faster**
+
+***
+
+# [**Libraries and packages:**]{style="color:#FF3333;"}
+
+## Libraries
+
+```{r class.source="watch-out"}
+# import os : interact with the operating system (e.g. change directory)
+# import math : access special math functions such as log(), sin(), sqrt(), pi
+# import random : random number generation
+# import datetime : clock and calendar functions
+
+
+# There is a way to use functions from modules(libraries) without calling the module first
+# from random import random : allows the use of random() without the random. before it
+# from random import * : imports all names(functions) in the module(library)
+
+
+# libraryName.functionName.__doc__ : returns what the program does (function purpose)
+```
+
+***
+
+# [**System functions:**]{style="color:#FF3333;"}
+
+## Standard nifty functions
+
+```{r class.source="watch-out"}
+# os.getcwd() : get current working directory - os library
+```
+
+***
+
+# [**How data is stored:**]{style="color:#FF0066;"}
+
+## Bytes, memory, file types
+
+```{r class.source="watch-out"}
+# All data in the computer is stored as a series of bits (0s and 1s)
+# Images can be stored digitally in any of the following formats 
+# JPEG: Joint Photographic Experts Group
+# PNG: Portable Interchange Format
+# GIF: Graphics Interchange Format
+# TIFF: Tagged Image File
+# PDF: Portable Document Format
+# EPS: Encapsulated Postscript
+
+# Memory can be thought of as a big array of bytes (1byte = a sequence of 8 bits)
+# Each memory address has an address (o..maximum address) and contents (8 bits)
+# A byte is the smallest unit of storage a programmer can address. We say that memory is byte-addressable
+
+# The standard way to represent characters in memory is ASCII 
+# The standard ASCII table defines 128 character codes (form 0 to 127)
+# A string is represented in memory by a sequence of ASCII character codes (01001010)(J) (01100001)(a)
+
+# Characters or small numbers can be stored in one byte. If data can't be stored in a single byte (e.g., a large number), it must be split across a number of adjacent bytes in memory.
+```
+
+***
+
+# [**Characters:**]{style="color:#FF0066;"}
+
+## Operating on characters/value/ordering of characters
+
+```{r class.source="watch-out"}
+# lowercase letters have higher ASCII values than uppercase letters (useful to sort)
+# the difference between a lowercase and uppercase character is 32
+
+# ord(c) : give the ASCII code for character c; returns a number
+# chr(n) : give the character with ASCII code n; returns a character
+```
+
+## Special string phrases
+
+```{r class.source="watch-out"}
+# Special characters within quotation marks(invalid syntax)
+# \b : backspace
+# \t : tab
+# \n : new line
+# \f : formfeed
+# \r : carriage return
+# \\ : backslash
+# \' : single quote
+# \" : double quote
+```
+
+***
+
+# [**Data Conversion:**]{style="color:#FF0066;"}
+
+## Variable type conversion
+
+```{r class.source="watch-out"}
+# int(<number, variable, string>) : Will truncate all that comes after the decimal
+# float(<number, variable, string>)
+# str(<number, variable>)
+# round(<number or variable>) 
+# bool(number) if number==0 then False if number >0 then true
+
+
+# Mixed-type experessions
+# Combining two floats result in a float
+# Combining two ints results in an int except for (/)
+# dividing two ints gives a float 
+# combing a float with an int usually yields a float.
+```
+
+***
+
+# [**Math Operations:**]{style="color:#9966FF;"}
+
+## Standard operations
+
+```{r class.source="watch-out"}
+# + Addition Ex: 34+1=35           : adding two floats results in an approximation ~(1.20000000006)
+# - Subtraction Ex: 43.0-0.1=33.9
+# * Multiplication Ex: 300*30=9000
+# / Float division Ex: 1/2=0.5
+# // Integer division Ex: 1//2=0
+# ** Exponentiation Ex: 4**0.5=2.0
+# pow(a, b) return a^b
+# % Remainder division Ex: 20%3=2
+# abs(x) Absolute value
+
+
+# Shorthand syntax
+# i+=j same as i=i+j
+# i-+j
+# i*=j
+# i/=j
+# i//=j
+# i**=j
+# i%=j
+
+
+# [Other operations]
+# round(x) : return nearest integer
+# round(value, decimal_places) : return the float rounded to b places after the decimal
+# max(vector) : return largest argument
+# min(vector) : return smallest argument
+# random.random() : generates random value between 0 and 1 - random library
+# math.sqrt(x) : returns square root of x - math library
+# math.pi : returns approximation of pi - math library
+# math.floor(x) : return rounded down integer - math library
+# math.ceil(x) : return rounded up integer - math library
+# math.exp(x) : return e^x - math library
+# math.log(x) : return the log of x - math library
+# math.sin(math.pi) : returns ~0 (will automatically detect degree or radian maybe...) - math library
+# math.degrees(math.pi) : returns 180 as it will convert from radian to degree - math library
+# math.radians(180) : returns pi as it will convert from degree to radian - math library
+# math.acos(x) : arc sine, useful for calculating angles - math library
+# math.asin(x) : arc cosine, useful for calculating angles - math library
+# random.radiant(a, b) : return a random integer between a and b inclusively - random library
+# random.randrange(a, b) : return a random integer between a and b-1 inclusively - random library
+```
+
+***
+
+# [**Logical Expressions:**]{style="color:#9966FF;"}
+
+## Booleans
+
+```{r class.source="watch-out"}
+# booleans can be stored in variables and when printed out will print (True/False)
+# <, >, <=, >=, ==, != are some boolean expressions
+# internally Python uses 0 to represent False and 1 to represent True. do this by using int(boolean)
+# and it works the other way around with bool(0) giving False and bool(1/>0) giving True
+# In a boolean context 0,"" and None at all represent False and *any other value* stands for True
+
+
+# Warnings:
+# using "==" when comparing floats can be tricky when dealing with floating point error 
+# for example (1.1x3 == 3.3) is false because (3.00000003 does not equal 3,3)
+
+# in a boolean context, Python wont always return True or False, just something equivalent
+# for example in ("" and 14 : returns ' ') and (0 or "abc" : returns 'abc')
+
+
+# Logical Operators
+# not : logical negation
+# and : logical conjunction
+# or : logical disunction
+# for example (boolean-expression) and not (boolean-expression)
+```
+
+## If statements
+
+```{r class.source="watch-out"}
+# general form:
+# if boolean-expression:
+#   statement(s) *must be indented*
+
+# if boolean-expression:
+#   true-case-statement(s)
+# else:
+#   false-case-statement(s)
+
+# if boolean-expression:
+#   if boolean-expression:
+#     statement(s)
+
+# if boolean-expression1:
+#   statement(s)
+# elif boolean-expression2:
+#   statement(s)
+# elif boolean-expression3:
+#   statement(s)
+# (will do any statement(s) of the first expression which is true)
+
+# if (condition which returns TRUE or FALSE)
+#   code to be executed
+```
+
+## conditional expressions
+
+```{r class.source="watch-out"}
+# variable = value1 if (boolean-expression) else value2 : sets variable to either value1 or value2 based on the expression
+```
+
+## Precedence
+
+```{r class.source="watch-out"}
+# The following items follow higher precedence the higher on the chart
+# +, - (Unary plus, minus)
+# **
+# not
+# *, /, //, %
+# +, - (Binary plus, minus)
+# <, <=, >, >=
+# ==, !=
+# and
+# or
+# Operators on the same line have the same precedence and evaluate left to right
+# Use parentheses to override precedence
+```
+
+***
+
+# [**Strings and Numeric manipulation:**]{style="color:#9966FF;"}
+
+## formatting fields of strings and numbers
+
+```{r class.source="watch-out"}
+# format (value, format-string) : generates a string representation of value formatted as indicated by the format-string
+# format(numerical_value, "x.nf") : creates a string representing a float("f) right justified in a field of width 10(aligned right) with 2 decimal digits 
+# format(numerical_value, "x.ne") : scientific notation
+# format(numerical_value, "x.n%") : percentage
+# format(numerical_value, "<x.nf") : ("<") aligned to the left
+# format(numerical_value, ">x.nf") : (">") aligned to the right : strings are aligned to left by default
+# format(numerical_value, "x.nd") : decimal
+# format(numerical_value, "x.nx") : hexadecimal
+# format(numerical_value, "x.no") : octal
+# format(numerical_value, "x.nb") : binary
+
+# format("string", "20s") : field of 20 as a string
+
+# String + String : will concatenate two strings (StringString) (+= will work the as well) : (cannot add a string and other variable type)
+```
+
+***
+
+# [**Input or set values:**]{style="color:#9966FF;"}
+
+## Assigning values to variables
+
+```{r class.source="watch-out"}
+# variable=value
+# Simultaneous assignments
+# m,n = 2,3 #same as m=2 , n=3
+# Multiple assignments
+# i = j = k = 1 #same as k=1, j=1, i=1
+```
+
+
+## Manual during-program input
+
+```{r class.source="watch-out"}
+# variable = input("<prompt string>") : will display "<prompt string>" and wait for user input via keyboard
+# variable will then be assigned the user input (AS A STRING)
+```
+
+***
+
+# [**Output:**]{style="color:#CC00FF;"}
+
+## Print statements
+
+```{r class.source="watch-out"}
+# print("characters/string", : Will output a string no matter the argument variable type
+#      sep = "character/s that go inbetween", : "" for no spaces
+#      end = "", : print without the implicit new line(stay on same line), can be replaced with any ending phrase
+```
+
+***
+
+# [**Date and times:**]{style="color:#3366FF;"}
+
+## Grabing, setting, and displaying time
+
+```{r class.source="watch-out"}
+#print(datetime.datetime.now()) : displays current time - datetime library
+```
+
+***
+
+# [**Creating programs:**]{style="color:#3366FF;"}
+
+## Defining a program / code group
+
+```{r class.source="watch-out"}
+# def Program_Name(): : Defines the program (traditionally named "main")
+#   code...
+#   return : will end/exit the program
+# code must be indented to be considered within the program (tab)
+# Program_Name() : Calls the program
+
+# python programFileName.py : can be used within shell to run the program file from shell
+# python programFileName.py. ........ to be determined
+```
+
+***
+
+# [**Advice on Programming:**]{style="color:#009999;"}
+
+## The process
+
+```{r class.source="watch-out"}
+# Requirements >
+# Design >
+# Implementation >
+# Verification >
+# Maintenance >
+```
+
+***
