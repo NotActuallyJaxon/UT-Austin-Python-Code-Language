@@ -24,7 +24,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ***
 
-# **Use word search shortcuts like CTRL+G to find specific functions faster**
+## **Use word search shortcuts like CTRL+G to find specific functions faster**
 
 ***
 
