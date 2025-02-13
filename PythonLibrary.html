@@ -1737,6 +1737,43 @@ Expressions:</strong></span></h1>
 <hr />
 </div>
 </div>
+<div id="loops" class="section level1">
+<h1><span style="color:#9966FF;"><strong>Loops:</strong></span></h1>
+<div id="loops-1" class="section level2">
+<h2>Loops</h2>
+<pre class="r watch-out"><code># while loop
+# while condition:
+#   statement(s)
+# Must be indented : will execute statement(s) while condition is true
+
+
+# For loop
+# for var in sequence:
+#   statement(s)
+# Must be indented : will execute statement(s) for as long as the sequence goes on
+
+# Example:
+# for i in [1, 2, 3, 4, 5]
+#   print(i)
+
+# Example:
+# for i in range(0,10)
+#   print(i) : prints 0,1,2,3,4,5,6,7,8,9 on they&#39;re own lines sequentially
+
+
+# nested loops
+# for i in range(0,10)
+#  for j in range(0,10)
+#     statement(s) : runs statement(s) 100 times (i and j must be separate variables)</code></pre>
+</div>
+<div id="code-for-loops" class="section level2">
+<h2>Code for loops</h2>
+<pre class="r watch-out"><code># break : will exit out of the loop when executed (but continue the program)
+
+# continue : exit the current iteration, (but continue with the loop)</code></pre>
+<hr />
+</div>
+</div>
 <div id="strings-and-numeric-manipulation" class="section level1">
 <h1><span style="color:#9966FF;"><strong>Strings and Numeric
 manipulation:</strong></span></h1>
@@ -1758,6 +1795,17 @@ manipulation:</strong></span></h1>
 # String + String : will concatenate two strings (StringString) (+= will work the as well) : (cannot add a string and other variable type)</code></pre>
 <hr />
 </div>
+</div>
+<div id="vectors-sequences-lists" class="section level1">
+<h1><span style="color:#9966FF;"><strong>Vectors, Sequences,
+Lists:</strong></span></h1>
+<pre class="r watch-out"><code># A Python sequence holds multiple items stored one after another.
+# seq = [2,3,5,7,11,13] # a list
+
+# range(a, b) : denotes the sequence a, a+1, a+2, b-1 (includes a but not b)
+# range(b) : is the same as range(0, b)
+# range(a, b, c) : generates a, a+c, a+2c, b&#39; where b&#39; is the last value &lt;b.</code></pre>
+<hr />
 </div>
 <div id="input-or-set-values" class="section level1">
 <h1><span style="color:#9966FF;"><strong>Input or set
@@ -1805,10 +1853,7 @@ programs:</strong></span></h1>
 #   code...
 #   return : will end/exit the program
 # code must be indented to be considered within the program (tab)
-# Program_Name() : Calls the program
-
-# python programFileName.py : can be used within shell to run the program file from shell
-# python programFileName.py. ........ to be determined</code></pre>
+# Program_Name() : Calls the program, can be typed within shell to run</code></pre>
 <hr />
 </div>
 </div>

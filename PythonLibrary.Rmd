@@ -264,6 +264,47 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ***
 
+# [**Loops:**]{style="color:#9966FF;"}
+
+## Loops
+
+```{r class.source="watch-out"}
+# while loop
+# while condition:
+#   statement(s)
+# Must be indented : will execute statement(s) while condition is true
+
+
+# For loop
+# for var in sequence:
+#   statement(s)
+# Must be indented : will execute statement(s) for as long as the sequence goes on
+
+# Example:
+# for i in [1, 2, 3, 4, 5]
+#   print(i)
+
+# Example:
+# for i in range(0,10)
+#   print(i) : prints 0,1,2,3,4,5,6,7,8,9 on they're own lines sequentially
+
+
+# nested loops
+# for i in range(0,10)
+#  for j in range(0,10)
+#     statement(s) : runs statement(s) 100 times (i and j must be separate variables)
+```
+
+## Code for loops
+
+```{r class.source="watch-out"}
+# break : will exit out of the loop when executed (but continue the program)
+
+# continue : exit the current iteration, (but continue with the loop)
+```
+
+***
+
 # [**Strings and Numeric manipulation:**]{style="color:#9966FF;"}
 
 ## formatting fields of strings and numbers
@@ -283,6 +324,19 @@ knitr::opts_chunk$set(echo = TRUE)
 # format("string", "20s") : field of 20 as a string
 
 # String + String : will concatenate two strings (StringString) (+= will work the as well) : (cannot add a string and other variable type)
+```
+
+***
+
+# [**Vectors, Sequences, Lists:**]{style="color:#9966FF;"}
+
+```{r class.source="watch-out"}
+# A Python sequence holds multiple items stored one after another.
+# seq = [2,3,5,7,11,13] # a list
+
+# range(a, b) : denotes the sequence a, a+1, a+2, b-1 (includes a but not b)
+# range(b) : is the same as range(0, b)
+# range(a, b, c) : generates a, a+c, a+2c, b' where b' is the last value <b.
 ```
 
 ***
@@ -340,10 +394,7 @@ knitr::opts_chunk$set(echo = TRUE)
 #   code...
 #   return : will end/exit the program
 # code must be indented to be considered within the program (tab)
-# Program_Name() : Calls the program
-
-# python programFileName.py : can be used within shell to run the program file from shell
-# python programFileName.py. ........ to be determined
+# Program_Name() : Calls the program, can be typed within shell to run
 ```
 
 ***
