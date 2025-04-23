@@ -28,9 +28,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ***
 
-# [**Libraries and packages:**]{style="color:#FF3333;"}
-
-## Libraries
+# [**Libraries and packages:**]{style="color:#FFCC00;"}
 
 ```{r class.source="watch-out"}
 # import os : interact with the operating system (e.g. change directory)
@@ -49,9 +47,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ***
 
-# [**System functions:**]{style="color:#FF3333;"}
+# [**System functions:**]{style="color:#FF9900;"}
 
-## Standard nifty functions
+## Standard Nifty Functions
 
 ```{r class.source="watch-out"}
 # os.getcwd() : get current working directory - os library
@@ -59,9 +57,153 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ***
 
-# [**How data is stored:**]{style="color:#FF0066;"}
+# [**Time Stamps:**]{style="color:#FF6600;"}
 
-## Bytes, memory, file types
+## Recording how long code takes to run
+
+```{r class.source="watch-out"}
+# tStart = time.clock()
+# tEnd = time.clock()
+# timeElapsed = tEnd - tStart
+```
+
+***
+
+# [**Files:**]{style="color:#FF3300;"}
+
+## How Files Are Stored
+
+```{r class.source="watch-out"}
+# Files are a persistent way to store programs, input data, and output data.
+# Files are stored in the memory of your computer in an area allocated to the file system, which is typically arranged into a hierarchy of directories.
+# The path to a particular file details where the file is stored within this hierarchy.
+```
+
+## Relative Pathnames
+
+```{r class.source="watch-out"}
+# A path to a file may be absolute or relative
+# If you just name the file, you're specifying that it is in the current working directory, i.e, relative to where to currently are in the file system hierarchy.
+```
+
+## Directorys
+
+```{r class.source="watch-out"}
+# os.getcwd() : get current working directory - os module (import os)
+# os.listdir() : returns every file in the working directory as a list
+```
+
+## Structure of a directory
+
+```{r class.source="watch-out"}
+# C:\Users\username\OneDrive\UT Files\Spring 2025\C S 303E\Assignments\test.py
+# C:   : C drive
+# \section\section within the last section\ so on..
+# test.py   : the file to be opened
+```
+
+## Managing Files in Python
+
+```{r class.source="watch-out"}
+# open : establish a connection to the file and associate a local file *handle* with a physical (*handle* can be thought of the local name of the file).
+# close : terminates the connection to the file.
+# read : input data from the file into your program.
+# write : output data from your program to a file.
+```
+
+## Permissible modes for files:
+
+```{r class.source="watch-out"}
+# Mode : Description
+# "r"  : Open for reading
+# "w"  : Open for writing. If the file already exists the old contents are overwritten
+# "a"  : Open for appending data to the end of the file
+# "rb" : Open for reading binary data
+# "wb" : Open for writing binary data
+
+# You also have to have necessary permissions from the operating system to access the files.
+# This semester we probably won't be using the binary modes.
+```
+
+## Opening a File
+
+```{r class.source="watch-out"}
+# Before your program can access the data in a file, it is necessary to open it. This returns a file object, also called a "handle," that you can use within your program to access the file.
+# It also informs the system how your intend for your program to interact with the file, the "mode," e.g., read or white
+
+
+
+# **example of opening a file**
+# fileHandle = open(filename, mode)
+
+# outfile = open("MyNewFile", "w") : if filename exists it is overwritten, if it does not it is created in the current working directory
+# outfile.write("This is a test") : adds the text to the file
+# outfile.close() : stops manipulating the file
+# This line of code created a file named MyNewFile in the current working directory containing the line of text "This is a test"
+```
+
+## Closing a File
+
+```{r class.source="watch-out"}
+# fileHandle.close()
+# All files are closed by the OS when your program terminates. Still, it is very important to close any file you open in Python.
+# -The file will be locked from access by any other program while you have it open;
+# -Items you write to the file may be held in internal buggers rather than written to the physical file;
+# -If you have a file open from writing, you can't read it until you close it, and re-open for reading;
+# -It's just good programming practice.
+```
+
+## Reading/Writing a File
+
+```{r class.source="watch-out"}
+# There are various Python functions for reading data from or writing data to a file, given the file handle in variable fn.
+# Function          Description
+#-----------------------------------------------------------------------------------
+# fn.read()         Return entire remaining contents of file as a string.
+# fn.read(k)        Return next k characters from the file as a string.
+# fn.readline()     Return the next line as a string. (each time this is called its looking at the next line)
+# fn.readlines()    Return all remaining lines in the file as a list of strings.
+# fn.write(str)     Write the string to the file. (doesn't not automatically include a newline \n)
+
+# These functions advance an internal file pointer that indicates where in the file you're reading/writing. Open sets it at the beginning of the file.
+
+# Warning: One cannot simultaneously read and write a file in Python. However, you can write a file, close it, and re-open it for reading.
+```
+
+## Append Mode
+
+```{r class.source="watch-out"}
+# Opening a file in append mode "a", means that writing a value to the file appends it at the end of the file.
+# It **does not** overwrite the previous content of the file.
+# You might use this to maintain a log file of transactions on an account
+# New transactions are added at the end, but all transactions are recorded
+```
+
+## Testing File Existence
+
+```{r class.source="watch-out"}
+# Sometimes you need to know whether a file exists, otherwise you may overwrite an existing file. Use the isfile function from the os.path module.
+
+# os.path.isfile("filename.fileType") : returns True if that file is in the current working directory (os module)
+```
+
+## Aside: redirecting output
+
+```{r class.source="watch-out"}
+# There's another way to get the output of a program into a file. 
+# When your file does a print, it sends the output to a standard out, which is typically the terminal.
+# You can redirect the output to a file, using > filename. Anything that would have been printed on the screen goes into a file instead.
+
+# filename.py > anotherFileName 
+
+# Notice that this happens at the OS level, not at the Python level.
+```
+
+***
+
+# [**How data is stored:**]{style="color:#FF3300;"}
+
+## Bytes, Memory, File Types
 
 ```{r class.source="watch-out"}
 # All data in the computer is stored as a series of bits (0s and 1s)
@@ -78,7 +220,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # A byte is the smallest unit of storage a programmer can address. We say that memory is byte-addressable
 
 # The standard way to represent characters in memory is ASCII 
-# The standard ASCII table defines 128 character codes (form 0 to 127)
+# The standard ASCII table defines 128 character codes (from 0 to 127)
 # A string is represented in memory by a sequence of ASCII character codes (01001010)(J) (01100001)(a)
 
 # Characters or small numbers can be stored in one byte. If data can't be stored in a single byte (e.g., a large number), it must be split across a number of adjacent bytes in memory.
@@ -86,58 +228,136 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ***
 
-# [**Characters:**]{style="color:#FF0066;"}
+# [**Value Types:**]{style="color:#FF0066;"}
 
-## Operating on characters/value/ordering of characters
+## Value Characteristics
 
 ```{r class.source="watch-out"}
-# lowercase letters have higher ASCII values than uppercase letters (useful to sort)
-# the difference between a lowercase and uppercase character is 32
+# All values in Python are objects (everything below)
+# There are two kinds of objects in Python:
+# Mutable: you can change them in your program.
+# Immutable: you can't change them in your program.
 
-# ord(c) : give the ASCII code for character c; returns a number
-# chr(n) : give the character with ASCII code n; returns a character
+# Mutable objects can be changed by a function
+# Immutable objects cannot be changed by a function or operation such as addition or subtraction
+
+# All immutable objects with the same content are stored as one object
 ```
 
-## Special string phrases
+## Value Types
 
 ```{r class.source="watch-out"}
-# Special characters within quotation marks(invalid syntax)
-# \b : backspace
-# \t : tab
-# \n : new line
-# \f : formfeed
-# \r : carriage return
-# \\ : backslash
-# \' : single quote
-# \" : double quote
+# Numeric Types:
+# int() : Represents integers (e.g., 10, -5, 0).
+# float() : Represents floating-point numbers (e.g., 3.14, -0.5, 2.0).
+# complex() " Represents complex numbers (e.g., 2+3j, 1j).
+
+# String Type:
+# str() : Represents text as a sequence of characters (e.g., "hello", "world").
+# Notice chr are not their own type but instead a string with a length of 1
+
+# List Type:
+# list() : represents a series of elements ( [element1, element2, element3] )
+
+# Tuple Type:
+# tuple() : tuple( [1, 2, 3] ) 3-tuple 
+# Tuples are like immutable lists of fixed size
+
+# Binary Types:
+# bytes : Represents an immutable sequence of bytes.
+
+# Boolean Type:
+# bool : Represents truth values, either True or False.
+
+# None Type:
+# NoneType : Represents the absence of a value.
+```
+
+***
+
+# [**Variables/Input:**]{style="color:#FF0066;"}
+
+## Variable Characteristics
+
+```{r class.source="watch-out"}
+# scope : The portion of the program in which they are defined
+# Global variable : Defined outside a function, is visible after it is defined, generally considered bad practice to use often.
+# Local variable : Defined within a function, is visible from the definition until the end of the function.
+# **A local definition overrides a global definition**
+
+# To access a global variable within a function
+# global varName
+```
+
+## Assigning Variables
+
+```{r class.source="watch-out"}
+# variable=value
+# Simultaneous assignments
+# m,n = 2,3 #same as m=2 , n=3
+# Multiple assignments
+# i = j = k = 1 #same as k=1, j=1, i=1
+
+# variableName = print("weird how this doesn't give an error") : wont give an error but rather does the print and sets variableName to None
+```
+
+## Manual During Program Input
+
+```{r class.source="watch-out"}
+# variable = input("<prompt string>") : will display "<prompt string>" and wait for user input via keyboard
+# variable will then be assigned the user input (as a string always)
+```
+
+## Troubleshooting Valid Inputs
+
+```{r class.source="watch-out"}
+# var.isdigit() : Returns True if var is composed of only numbers
+#                 Returns False if var is a string / something else
+```
+
+## Illegal Variable Names
+
+```{r class.source="watch-out"}
+# **Variable names that can't be used**
+# (1) begins with a number (0-9)
+# (2) contain spaces " "
+# (3) include special characters such as @, $, %, !
+# (4) are reserved keywords like if, for, return, def
+# (5) are built in function names such as max, print
 ```
 
 ***
 
 # [**Data Conversion:**]{style="color:#FF0066;"}
 
-## Variable type conversion
+## Variable Type Conversion
 
 ```{r class.source="watch-out"}
 # int(<number, variable, string>) : Will truncate all that comes after the decimal
-# float(<number, variable, string>)
-# str(<number, variable>)
-# round(<number or variable>) 
-# bool(number) if number==0 then False if number >0 then true
+# float(<number, variable, string>) : will add a .0 on the tail of integers 
+# (float() *Only works on strings if they contain only valid numbers* e.g. "abc", "12.3.4" or "one hundred")
+# str(<number, variable>) : puts in ""
+# round(<number or variable>) : rounds to nearest int (but when 0.5 it rounds to nearest even int e.g. 3.5 -> 4, 4.5 -> 4)
+# bool(number) if number==0 then False if number >0 then true (if number = "" False then Tue if "anything including spaces")
 
 
 # Mixed-type experessions
 # Combining two floats result in a float
 # Combining two ints results in an int except for (/)
-# dividing two ints gives a float 
+# **dividing two ints gives a float** (ex: 3/2 = 1.5, 1/1 = 1.0)
 # combing a float with an int usually yields a float.
+
+
+# Warning: Immutable types are those whose values cannot be changed after they are created (doesn't literally not change variable values in use for code)
+# but it has implications for memory where they are offloaded after being overwritten
+# Include int, float, complex, str, tuple, frozenset, and bytes
 ```
 
 ***
 
-# [**Math Operations:**]{style="color:#9966FF;"}
+# [**Math Operations:**]{style="color:#FF00CC;"}
 
-## Standard operations
+## Standard Operations
 
 ```{r class.source="watch-out"}
 # + Addition Ex: 34+1=35           : adding two floats results in an approximation ~(1.20000000006)
@@ -146,12 +366,14 @@ knitr::opts_chunk$set(echo = TRUE)
 # / Float division Ex: 1/2=0.5
 # // Integer division Ex: 1//2=0
 # ** Exponentiation Ex: 4**0.5=2.0
-# pow(a, b) return a^b
+# pow(a, b) return a^b (functionally equivalent to **)
 # % Remainder division Ex: 20%3=2
 # abs(x) Absolute value
+```
 
+## Shorthand Syntax
 
-# Shorthand syntax
+```{r class.source="watch-out"}
 # i+=j same as i=i+j
 # i-+j
 # i*=j
@@ -159,14 +381,16 @@ knitr::opts_chunk$set(echo = TRUE)
 # i//=j
 # i**=j
 # i%=j
+```
 
-
+## Complex Operations
+```{r class.source="watch-out"}
 # [Other operations]
 # round(x) : return nearest integer
 # round(value, decimal_places) : return the float rounded to b places after the decimal
 # max(vector) : return largest argument
 # min(vector) : return smallest argument
-# random.random() : generates random value between 0 and 1 - random library
+# random.random() : generates random value [0,1) - random library
 # math.sqrt(x) : returns square root of x - math library
 # math.pi : returns approximation of pi - math library
 # math.floor(x) : return rounded down integer - math library
@@ -178,40 +402,43 @@ knitr::opts_chunk$set(echo = TRUE)
 # math.radians(180) : returns pi as it will convert from degree to radian - math library
 # math.acos(x) : arc sine, useful for calculating angles - math library
 # math.asin(x) : arc cosine, useful for calculating angles - math library
-# random.radiant(a, b) : return a random integer between a and b inclusively - random library
+# random.randint(a, b) : return a random integer between a and b inclusively - random library
 # random.randrange(a, b) : return a random integer between a and b-1 inclusively - random library
 ```
 
 ***
 
-# [**Logical Expressions:**]{style="color:#9966FF;"}
+# [**Logical Expressions:**]{style="color:#FF00CC;"}
 
-## Booleans
+## Boolean Characteristics
 
 ```{r class.source="watch-out"}
 # booleans can be stored in variables and when printed out will print (True/False)
 # <, >, <=, >=, ==, != are some boolean expressions
 # internally Python uses 0 to represent False and 1 to represent True. do this by using int(boolean)
 # and it works the other way around with bool(0) giving False and bool(1/>0) giving True
-# In a boolean context 0,"" and None at all represent False and *any other value* stands for True
+# In a boolean context 0,"" and None all represent False and *any other value* stands for True
 
 
 # Warnings:
 # using "==" when comparing floats can be tricky when dealing with floating point error 
 # for example (1.1x3 == 3.3) is false because (3.00000003 does not equal 3,3)
+# If one part of an expression is evaluated first and results in the rest of the expression being not needed then it wont evaluate the rest of the expression
 
 # in a boolean context, Python wont always return True or False, just something equivalent
 # for example in ("" and 14 : returns ' ') and (0 or "abc" : returns 'abc')
+```
 
+## Logical Operators
 
-# Logical Operators
-# not : logical negation
-# and : logical conjunction
-# or : logical disunction
+```{r class.source="watch-out"}
+# not : logical negation (inverts the boolean value)
+# and : logical conjunction (True only if both operands are True, otherwise False)
+# or : logical disunction (True if at least one of its operands are True, otherwise False)
 # for example (boolean-expression) and not (boolean-expression)
 ```
 
-## If statements
+## If Statements
 
 ```{r class.source="watch-out"}
 # general form:
@@ -234,15 +461,21 @@ knitr::opts_chunk$set(echo = TRUE)
 # elif boolean-expression3:
 #   statement(s)
 # (will do any statement(s) of the first expression which is true)
-
-# if (condition which returns TRUE or FALSE)
-#   code to be executed
 ```
 
-## conditional expressions
+## Conditional Expressions
 
 ```{r class.source="watch-out"}
 # variable = value1 if (boolean-expression) else value2 : sets variable to either value1 or value2 based on the expression
+```
+
+## Chained Comparisons
+
+```{r class.source="watch-out"}
+# In an expression
+# a <= b == c
+# Python interprets it as (a <= b) and (b == c)
+# only if both are true will the full expression be true
 ```
 
 ## Precedence
@@ -264,7 +497,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ***
 
-# [**Loops:**]{style="color:#9966FF;"}
+# [**Loops:**]{style="color:#CC33CC;"}
 
 ## Loops
 
@@ -279,23 +512,29 @@ knitr::opts_chunk$set(echo = TRUE)
 # for var in sequence:
 #   statement(s)
 # Must be indented : will execute statement(s) for as long as the sequence goes on
+# (by the way, the (var) in for var in sequence can be accessed outside the loop after it ran)
+# also changing the length of the sequence the loop is based on does not change the number of iterations
+# the length or other characteristics of sequence are taken at the start and not looked back on
 
 # Example:
-# for i in [1, 2, 3, 4, 5]
-#   print(i)
+# for i in [1, 2, 3, 4, 5]:
+#   print(i) : prints 1, 2, 3, 4 5 on they're own lines sequentially
 
 # Example:
-# for i in range(0,10)
+# for i in range(0,10):
 #   print(i) : prints 0,1,2,3,4,5,6,7,8,9 on they're own lines sequentially
 
+# Example:
+# for i in range(0,10,2):
+#   print(i) : prints 0,2,4,6,8 on they're own lines sequentially
 
 # nested loops
-# for i in range(0,10)
-#  for j in range(0,10)
+# for i in range(0,10):
+#  for j in range(0,10):
 #     statement(s) : runs statement(s) 100 times (i and j must be separate variables)
 ```
 
-## Code for loops
+## Code For Loops
 
 ```{r class.source="watch-out"}
 # break : will exit out of the loop when executed (but continue the program)
@@ -305,17 +544,196 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ***
 
-# [**Strings and Numeric manipulation:**]{style="color:#9966FF;"}
+# [**Functions:**]{style="color:#CC33CC;"}
 
-## formatting fields of strings and numbers
+## About Functions
+
+```{r class.source="watch-out"}
+# A function takes an input and gives an output (like a computational rule)
+# A function definition defines a block of code that performs a specific task, may or may not return a value
+
+# functionName : An identifier by which the function is called
+# Arguments : Contains a list of values passed to the function, the values assigned to a, b like add(2, 3)
+# Parameters : The values defined within the function definition, the a, b in def add(a, b):
+# Function body : This executed each time the function is called
+# return value : Ends function call & sends data back to the program
+# Identation : Function body must be indented
+
+# You can access the description of a function (the """desc""") with the following syntax
+# functionName.__doc__
+```
+
+## Creating Functions
+
+```{r class.source="watch-out"}
+# def functionName(list of parameters): # header
+#   """Description"""                   # Discription of function
+#   statement(s)                        # body
+#   return value                        # return statement (can think of the function call as being replaced by the value returned)
+#   return                              # returns nothing / None
+#   return None                         # also returns nothing / None
+#   no return in body                   # also also returns nothing / None
+
+# Example 1:
+# def add(a, b):
+#   """Returns the sum of a and b"""
+#   return a+b
+# add(2,3)
+
+
+
+# Formal parameters as **keywords**
+# def functionName (x1, x2, x3, x4):
+#   functionBody
+
+
+
+
+# can also specify **default arguments** for a function.
+# If you don't specify a corresponding actual argument, the default is used
+# Can mix default and non-default arguments, but must define the non-default arguments first.
+
+# def functionName(width = 1, height = 2)
+#   functionBody
+# def functionName(width, height =2)
+#   functionBody
+# Examples:
+# functionName(height = 2)
+# functionName(4, 2.5)
+```
+
+## Calling Functions
+
+```{r class.source="watch-out"}
+# These two calls are equivalent
+# functionName(x3 = 'c', x1 = 'a', x2 = 'b', x4 = 'd') is the same as
+# functionName('a', 'b', 'c', 'd')
+
+
+
+# Can also mix keyword and positional arguments, but must have position arguments first in order
+# functionName('a', 'b', x4 = 'd', x3 = 'c')
+# or
+# functionName('a', x2='b', 'c', x4='d')
+
+
+
+# WARNING, cannot call a function without passing any arguments when it has required parameters.
+```
+
+## Types Of Functions
+```{r class.source="watch-out"}
+# Boolean-valued function : is a function that returns either True or False : Is often called a **predicate**
+
+# Procedure : A function that doesn't return a value
+```
+
+## Aspects Of Functions
+
+```{r class.source="watch-out"}
+# Once the function is defined, it can be used as if it were a primitive in the language without worries of the details of the definition
+# We need to know what it does, but don't care anymore how it does it
+# This is called **information hiding** or **functional abstraction**
+
+# There are ocassionally reasons to define one function within another function. But generally its a bad idea
+# Its good practice to place defined functions at the top of a code file.
+```
+
+## Return Statements
+
+```{r class.source="watch-out"}
+# when a return statement is executed, you go back to the calling environment. Don't need to hand a value back to the caller
+# The return statement can be nested in loops and still exit the whole function when executed
+
+# If a return doesn't specify a value to return it will return the constant **None**.
+# Every function has an **implicit** return at the end.
+
+# def printTest ( x ):
+#   print( x )
+#   #   implicit return here
+# You can only have a return statement within a function.
+
+# Returning multiple values
+# return statements can return a tuple of values
+# return x, y : x,y = 1, 2 : will return (1,2)
+```
+
+## Abstraction
+
+```{r class.source="watch-out"}
+# Functional abstraction : Find parts of an algorithm that can be coded separately and "packaged" as functions
+# Also an instance of **information hiding**
+```
+
+## Passing Arguments
+
+```{r class.source="watch-out"}
+# Positional Arguments : matching up arguments according to their position in the list
+# Keyword : passing arguments to a function using the parameter names as keywords
+
+# Passing Arguments
+# When you pass an argument to a function, you're actually passing a **reference** (pointer) to the object, not the object itself.
+```
+
+***
+
+# [**Iteration:**]{style="color:#CC33CC;"}
+
+## What Is An Interative Function
+
+```{r class.source="watch-out"}
+# A function which uses loops (like for or while) to repeat a block of code until a certain condition is met.
+```
+
+***
+
+# [**Recursion:**]{style="color:#CC33CC;"}
+
+## What Is Recursion
+
+```{r class.source="watch-out"}
+# A recursive function is a function defined by itself.
+# A function which calls itself (either directly or indirectly).
+```
+
+## Mutually Recursive
+
+```{r class.source="watch-out"}
+# Functions A and B are mutually recursive if A calls B and B calls A.
+```
+
+## Recurrence Relation
+
+```{r class.source="watch-out"}
+# A set of equations that define how the function behaves or arbitrary inputs.
+```
+
+## Base Case
+
+```{r class.source="watch-out"}
+# The lowest action which ends the recursion.
+# (nothing left to do).
+```
+
+## Recursive Case
+
+```{r class.source="watch-out"}
+# An action which reduces the function to a smaller but structurally identical function.
+```
+
+***
+
+# [**String Field Format Function:**]{style="color:#CC00FF;"}
+
+## Formatting Strings and Numbers
 
 ```{r class.source="watch-out"}
 # format (value, format-string) : generates a string representation of value formatted as indicated by the format-string
-# format(numerical_value, "x.nf") : creates a string representing a float("f) right justified in a field of width 10(aligned right) with 2 decimal digits 
+# format(numerical_value, "x.nf") : creates a string representing a float("f) right justified in a field of width x(aligned right automatically) with n decimal digits 
 # format(numerical_value, "x.ne") : scientific notation
 # format(numerical_value, "x.n%") : percentage
 # format(numerical_value, "<x.nf") : ("<") aligned to the left
-# format(numerical_value, ">x.nf") : (">") aligned to the right : strings are aligned to left by default
+# format(numerical_value, ">x.nf") : (">") aligned to the right : strings are aligned to left by default (string in place of numeric value)
 # format(numerical_value, "x.nd") : decimal
 # format(numerical_value, "x.nx") : hexadecimal
 # format(numerical_value, "x.no") : octal
@@ -324,60 +742,802 @@ knitr::opts_chunk$set(echo = TRUE)
 # format("string", "20s") : field of 20 as a string
 
 # String + String : will concatenate two strings (StringString) (+= will work the as well) : (cannot add a string and other variable type)
+
+
+
+# string.center(fieldWidth) : formats a string field of the width specified and the string at its center
 ```
 
 ***
 
-# [**Vectors, Sequences, Lists:**]{style="color:#9966FF;"}
+# [**Strings/Characters:**]{style="color:#CC00FF;"}
+
+## The str Class
+
+```{r class.source="watch-out"}
+# Strings are actually sequences of characters
+# Strings are immutable, meaning you can't change them after they are created
+```
+
+## Creating Strings
+
+```{r class.source="watch-out"}
+# s1 = str("Hello!") : Using the constructor function
+# s1 = "Hello!" : Alternative syntax
+# Both are identical (same id)
+```
+
+## Raw Strings
+
+```{r class.source="watch-out"}
+# rawString = r"abc\nef"
+# print(rawString) -> 'abc\nef' instead of a (next line) between 'c' and 'e'
+```
+
+## Sequence Operations
+
+```{r class.source="watch-out"}
+# x in s   : x is in sequence s
+# x not in s   : x is not in sequence s
+# s1 + s2   : concatenates two sequences
+# s * n   : repeat sequence s, n times
+# s[i]   : ith element of sequence (0-based, starts at 0)
+# s[i:j]   : slice of sequence s from i to j-1 [i,j) **No out of bounds errors** [:9999] is oki doki
+# len(s)   : return length of the string
+# min(s)   : return char in string with lowest ASCII value
+# max(s)   : return char in string with highest ASCII value
+# sum(s)   : sum of elements in s
+# for loop   : traverse elements of sequence
+# <, <=, >, >=   : compares two sequences using lexicographical order (if two strings are different lengths but otherwise the same up to the point one string ends then comparison is switched to comparing the string lengths)
+# ==, !=   : compares two sequences
+```
+
+## Converting Strings
+
+```{r class.source="watch-out"}
+# string.capitalize()   : returns string with first character capitalized
+# string.lower()   : returns string with all lowercase letters
+# string.upper()   : returns string with all uppercase letters
+# string.title()   : returns string string with all separated words within capitalized
+# string.swapcase()   : returns string with inverted case (lower->upper / upper->lower)
+# string.replace(old, new)   : returns string with occurrences of old within replaced with new
+```
+
+## Stripping Whitespace
+
+```{r class.source="watch-out"}
+# string.lstrip()   : returns string with leading whitepace removed "  abc" -> "abc"
+# string.rstrip()   : returns string with trailing whitespace removed "abc   " -> "abc"
+# string.strip()   : returns string with leading and trailing whitespace removed "   abc   " -> "abc"
+```
+
+## Useful Testing Methods
+
+```{r class.source="watch-out"}
+# string.isalnum()   : returns True if all nonempty alphanumeric string (alphanumeric)
+# string.isalpha()   : returns True if all nonempty alphabetic string ("a", "B", . . .)
+# string.isdigit()   : returns True if all nonempty numerical digits string (0, 1, 2, 3, . . .)
+# string.isidentifier():   : returns True if the string follows rules for Python identifier (an identifier is a name given to a variable, function, class, module, or other object)
+# string.islower()   : returns True if nonempty and contains only lowercase letters?
+# string.isupper()   : returns True if nonempty and contains only uppercase letters
+# string.isspace()   : returns True if nonempty and contains only whitespace? (" ", "\n\t\r")
+```
+
+## Indexing Into Strings
+
+```{r class.source="watch-out"}
+#  0   1   2   3  4  5  6  7  8  9 10 
+#  M   o   n   t  y  P  y  t  h  o  n
+# -11 -10 -9  -8 -7 -6 -5 -4 -3 -2 -1
+
+# string[index] returns character at that index in the string sequence
+# string[-i] means -i + len(s)
+
+# string[:index] returns string from 0 to index [0,index)
+# string[index:] returns string from index to end [index,end]
+# The indexing [:-3] or [0:-3] will return the items up to the -3 index
+# [-3:] would also return the items from the -3 index to the right ->
+```
+
+## Slicing 
+
+```{r class.source="watch-out"}
+# Slicing means to select a contiguous subsequence of a sequence or string.
+# String[start : end]
+# s = "Hello, World!"
+# s[1 : 4]   : [1,4) returns 'ell'
+```
+
+## Formatting Strings
+
+```{r class.source="watch-out"}
+# string.center(w)   : returns string of length w, with string centered ("abc".center(7) -> "  abc  ") (slight left just if odd length)
+# string.ljust(w)   : returns string of length w, with string left justified ("abc".ljust(5) -> "abc  ")
+# string.rjust(w)   : returns string of length w, with string right justified ("abc.rjust(5) -> "  abc)
+```
+
+## Substring Search
+
+```{r class.source="watch-out"}
+# string.endswith(string2)   : returns True if string ends with substring string2
+# string.startswith(string2)   : returns True if string starts with substring string2
+# string.find(string2)   : returns lowest index where string2 starts in string, (returns -1 if not found) (only works on strings)
+# string.rfind(string2)   : returns highest index where string2 starts in string, (returns -1 if not found)
+# string.count(string2)   : returns number of non-overlapping occurrences of string2 in string
+```
+
+## in and not in operators
+
+```{r class.source="watch-out"}
+# Allow check wether one string is a *contiquous* substring of another
+# s1 = "xyz"
+# s2 = "abcxyzrls"
+# s3 = "axbyczd"
+# s1 in s2   : returns True
+# s1 in s3   : returns False
+```
+
+## Comparing Strings
+
+```{r class.source="watch-out"}
+# Ordering strings using relational operators <, <=, >, >=
+# For strings, this is lexicographic (or alphabetical) ordering using the ASCII character codes
+# Yes, lexicographic ordering compares two sequences (like words or numbers) by comparing their elements one by one, from the beginning, until a difference is found or one sequence is exhausted
+# *This is NOT comparing the total sum of ASCII codes
+# "abc" < "abcd"   : returns True
+```
+
+## Iterating Over A String
+
+```{r class.source="watch-out"}
+# DIFF = ord('a') - ord('A')
+# result = ""
+# for ch in s:
+#   if ('A' <= ch <= 'Z'):
+#     result += chr(ord(ch) + DIFF)
+#   elif ('a' <= ch <= 'z'):
+#     result += chr(ord(ch) - DIFF)
+#   else:
+#     result += ch
+# print(result)   : returns all a-z characters swaped cases lower/upper
+```
+
+## Strings Are Immutable
+
+```{r class.source="watch-out"}
+# You can't change a string, by assigning at an index. You have to create a new string
+# s = "Pat"
+# s[0] = 'R'   : Can't do this (TypeError)
+```
+
+## String Operations
+
+```{r class.source="watch-out"}
+# lowercase letters have higher ASCII values than uppercase letters (useful to sort)
+# the difference between a lowercase and uppercase character is 32
+
+
+# ord(c) : give the ASCII code for character c; returns a number
+# chr(n) : give the character with ASCII code n; returns a character
+# "@" is 64 and next above it is A
+# "A" is 65 and alphabet goes up from there to "Z" at 90
+# "a" is 97 and alphabet goes up from there to "z" at 122
+```
+
+## Special String Phrases
+
+```{r class.source="watch-out"}
+# Special characters within quotation marks(invalid syntax)
+# \b : backspace
+# \t : tab
+# \n : new line
+# \f : form feed
+# \r : carriage return
+# \\ : backslash
+# \' : single quote
+# \" : double quote
+```
+
+## String Example
+
+```{r class.source="watch-out"}
+# A comma-separated values (csv) file is a common way to record data
+# Each line has multiple values separated by commas, for example:
+#   Name,EID,HW1,HW2
+#   Jones;Bob,bj123,10,9
+```
+
+***
+
+# [**Sequences:**]{style="color:#0033FF;"}
+
+## Sequences
 
 ```{r class.source="watch-out"}
 # A Python sequence holds multiple items stored one after another.
 # seq = [2,3,5,7,11,13] # a list
 
-# range(a, b) : denotes the sequence a, a+1, a+2, b-1 (includes a but not b)
-# range(b) : is the same as range(0, b)
-# range(a, b, c) : generates a, a+c, a+2c, b' where b' is the last value <b.
+# range(a, b) : denotes the sequence a, a+1, a+2, b-1 [a,b)
+# range(b) : is the same as range(0, b) [0,b)
+# range(a, b, c) : generates a, a+c, a+2c, b' where b' is the last value <b. [a,c)
+```
+***
+
+# [**Tuples:**]{style="color:#0033FF;"}
+
+## What are tuples
+
+```{r class.source="watch-out"}
+# Tuples, like strings and lists, are sequences and inherit various functions from sequences. Like strings, but unlike lists, they are immutable.
+# Refer to sequence operations for those functions
+```
+
+## Creating tuples
+
+```{r class.source="watch-out"}
+# tuple() : creates an empty tuple
+# t1 = () : special syntax
+
+# t2 = tupple( [1,2,3] ) -> (1, 2, 3)
+# t3 = tuple([1]) -> (1,)
+# t4 = (2,) -> (2,)
+```
+
+## Converting tuples
+
+```{r class.source="watch-out"}
+# tuple = tuple( [1, 2, 3, 4, 5] ) : convert from list to tuple
+# listi = list(tuple) : convert from tuple to list
+```
+
+## Returning tuples
+
+```{r class.source="watch-out"}
+# Functions can return tuples just as they can return other values. Specifically, if they return multiple values, they are really returning a tuple
+
+# return x1, x2, x3 : returning a 3-tuple
+```
+
+## Additional set functions
+
+```{r class.source="watch-out"}
+# Like lists, sets are mutable. These two methods alter the set. 
+# Function      Description
+#-----------------------------------
+# s.add(e)      add e to set s
+# s.remove(e)   remove e from s
+```
+
+## Subset: Alternate syntax
+
+```{r class.source="watch-out"}
+# Function   Description
+#--------------------------
+# s1 <= s2   s1 is a subset of s2
+# s1 < s2    s1 is a proper subset of s2
+# s2 >= s1   s2 is a superset of s1
+# s2 > s1    s2 is a proper superset of s1
+```
+
+## Set Operations
+
+```{r class.source="watch-out"}
+# The following operations take two sets and return a new set.
+# Function                     Alternate Syntax    Description
+#---------------------------------------------------------------------------------------
+# s1.union(s2)                 s1 | s2             elements in s1 or s2
+# s1.intersection(s2)          s2 & s2             elements in both s1 and s2
+# s1.difference(s2)            s1 - s2             elements in s1 but not in s2
+# s1.symmetric_difference(s2)  s1 ^ s2             elements in s1 or s2, but not both
 ```
 
 ***
 
-# [**Input or set values:**]{style="color:#9966FF;"}
+# [**Dictionaries:**]{style="color:#0033FF;"}
 
-## Assigning values to variables
+## What are Dictionaries
 
 ```{r class.source="watch-out"}
-# variable=value
-# Simultaneous assignments
-# m,n = 2,3 #same as m=2 , n=3
-# Multiple assignments
-# i = j = k = 1 #same as k=1, j=1, i=1
+# A Python dictionary stores a set of key/value pairs. It enables very fast retrieval, deletion and updating of values using the keys.
+
+# Imagine a regular dictionary; associated with each word is a definition.
+# The word is the key, and the definition is the value.
+# The most fundamental operation is being able (quickly) to look up the value associated with the key.
 ```
 
-
-## Manual during-program input
+## Creating Dictionaries
 
 ```{r class.source="watch-out"}
-# variable = input("<prompt string>") : will display "<prompt string>" and wait for user input via keyboard
-# variable will then be assigned the user input (AS A STRING)
+# dictionaryEX = {2 : 4, 3 : 9, 4 : 16, 5 : 25}
+```
+
+## Dictionary Manipulation
+
+```{r class.source="watch-out"}
+# Use curly braces ({}) to denote a dictionary (and a set).
+# To add (or change) and item in a dictionary, use the syntax:
+# dictionaryName [key] = value
+
+# To retrieve the value associated with key, use:
+# dictionaryName [key]
+
+# To delete a key/value from the dictionary
+# del dictionaryName [key]
+```
+
+## Looping over a dictionary
+
+```{r class.source="watch-out"}
+# The most common way to iterate over a dictionary is to loop over the keys,
+
+# for key in dictionaryName:
+#    <body>
+```
+
+## Comparing dictionaries
+
+```{r class.source="watch-out"}
+# Notice that dictionary keys (like sets) are not ordered. Two dictionaries are equal if they contain the same pairs:
+# {'Susie':14, 'Frank':87} == {'Frank':87, 'Susie':14} -> returns True
+```
+
+## Dictionary functions
+
+```{r class.source="watch-out"}
+# The following sequence functions work for dictionaries
+# Function            Description
+#-----------------------------------------------------------
+# key in dict         key is in the dict
+# key not in dict     key is not in the dict
+# len(dict)           number of key/value pairs in dict
+# min(dict)           minimum key in dict, if comparable
+# max(dict)           maximum key in dict, if comparable
+# sum(dict)           sum of keys in dict, if summable
+# for key in dict     traverse dictionary
+# ==, !=              compares two dictionaries
+```
+
+## Other Dictionary Methods
+
+```{r class.source="watch-out"}
+# These are methods from class dict. Dictionaries are mutable; the final three change d.
+# Function          Description
+#----------------------------------------------------------------------
+# d.keys()          return the keys of d as a tuple
+# d.values()        return the values of d as a tuple
+# d.items()         return the key/value pairs from d as a tuple
+# d.get(key)        return the value for the key, same as d[key]
+
+# d.clear()         delete all items in d
+# d.pop(key)        remove item with key and return the value
+# d.popitem()       remove a randomly selection item and return that key/value pair
+```
+
+## Dictionary Views
+
+```{r class.source="watch-out"}
+# dict_keys
+# d.keys() -> returns the keys of d in form dict_keys([key1, key2, . . .])
+
+# dict_values
+# d.values() -> returns the values of d in form dict_values([value1, value2, . . .])
+
+# dict_items
+# d.items() -> returns the items of d in form dict_items([item1, item2, . . .])
+
+# Those add types dict_keys, dict_values, and dict_items are **dictionary views**. They're tied to the dictionary; if you change the dictionary, the views change even if you try to save them into a variable.
 ```
 
 ***
 
-# [**Output:**]{style="color:#CC00FF;"}
+# [**Sets:**]{style="color:#0033FF;"}
 
-## Print statements
+## What are sets
+
+```{r class.source="watch-out"}
+# Sets are similar to lists except:
+# -sets don't store duplicate elements;
+# -sets are not ordered.
+```
+
+## Creating sets
+
+```{r class.source="watch-out"}
+# s1 = set() : creates an empty set
+# s1 -> returns 'set()' **odd syntax**
+
+# s2 = set([1, 2, 2, 4, 3]) : set from a list
+# s2 -> returns  '{1, 2, 3, 4}' **no duplicates and is ordered**
+
+# set("abcda") -> returns {'d', 'a', 'c', 'b'} : set from string
+
+# set( ("abc", 4, 2.3) ) -> returns {2.3, 'abc', 4} : set from tuple
+```
+
+## Comparing sets
+
+```{r class.source="watch-out"}
+# {'d', 'a', 'c', 'b'} == {'a', 'c', 'b', 'd'} -> returns True **order doesn't matter**
+```
+
+
+***
+
+# [**Lists:**]{style="color:#0033FF;"}
+
+## List Class
+
+```{r class.source="watch-out"}
+# Both strings and lists are sequence types in Python, so share many similar methods. Unlike strings, lists are mutable.
+
+# If you change a list, it doesn't create a new copy; it changes the input list.
+# So list = list.reverse() will return None since it returns nothing (do list.reverse() instead)
+# This also means returning isn't necessary when passing Lists to Functions
+# Also also this is when referring the functions, so normal operators like (+) will still require a list3 = list1 + list2 to change what a list is stored as
+```
+
+## Creating Lists
+
+```{r class.source="watch-out"}
+# list() : create empty list, with constructor
+# list([1, 2, 3]) : create list [1, 2, 3]
+# list(["red", 3, 2.5]) : create heterogeneous list
+# ["red", 3, 2.5] : create list, no explicit constructor
+# list(range(4)) : create list using range
+# list("abcd") : create character list from string ['a', 'b', 'c', 'd']
+# str(list) : creates a string directly from a list
+
+# Warnings:
+# range(4) : not an actual list
+```
+
+## List vs. Arrays
+
+```{r class.source="watch-out"}
+# Arrays are: (Not in Python)
+  # homogeneous
+  # fixed size
+  # permit very fast access time
+
+# Python lists are:
+  # heterogeneous (can contain elements of different types)
+  # variable size
+  # permit fast access time
+
+# Reason lists can permit fast access time
+  # Python stores pointers to the elements in a list
+  # pointers are all the same size
+```
+
+## Sequence Methods
+
+```{r class.source="watch-out"}
+# (Lists are really sequences)
+
+# x in s   : return (True) if x is in sequence s
+# x not in s   : return (True) if x is not in sequence s
+# s1 + s2   : returns (concatenates two sequences)
+# s * n   : returns the (repeat sequence s, n times)   print([1,2,3] * 3) -> [1, 2, 3, 1, 2, 3, 1, 2, 3]
+# s[i]   : returns the (ith element) of a sequence (0-based)   print([1,2,3][1]) -> 1
+# s[i:j]   : returns (slice of sequence s from index i to j-1) [i, j)   **No out of bounds errors** s[:9999] is oki doki   print([1,2,3][1:]) -> [2, 3]
+# len(s)   : returns (number of elements in s)   (len([]) -> returns 0)
+# min(s)   : returns (minimum element of s)
+# max(s)   : returns (maximum element of s)
+# sum(s)   : returns (sum of elements in s)   (sum([]) -> returns 0)
+# for loop   : traverse elements of sequence
+# <, <=, >, >=   : compares two sequences
+# ==, !=   : compares two sequences
+```
+
+## More List Methods
+
+```{r class.source="watch-out"}
+# list.append(x)   : adds x to the end of list   **can't add multiple elements**
+# list.extend(list2)   : adds list2 to the end of list
+# list.insert(i, x)   : inserts x into list at index i
+# list.pop()   : removes and returns the last element of list
+# list.pop(i)   : removes and returns the ith element of list
+# list.remove(x)   : removes the first occurrence of x from list
+# list.reverse()   : reverses the elements of list
+# list.sort()   : orders the elements of list (only works on lists containing the same item types *can't compare a string to an integer)
+# list.count(x)   : returns the number of times x appears in list
+# list.index(x)   : returns the index of the first occurrence of x in list (works on lists and strings) (raises an error if the specified element is not found *for both string and list types)
+```
+
+## Some More List Methods
+
+```{r class.source="watch-out"}
+# random.shuffle(list1)   : shuffles the items in list1 randomly (random module)
+```
+
+## Splitting Strings into Lists
+
+```{r class.source="watch-out"}
+# string.split(",")   : if string = "abc, def , ghi" returns -> ['abc', ' def ', ' ghi']
+# string.split()   : split on whitespace
+# string.split("/")   : split on slash
+```
+
+## Indexing through lists
+
+```{r class.source="watch-out"}
+# Warning indexes must be integers (NOT floats like 4.0 or -3.0)
+
+# Lists can be indexed forward and backward (+ and -)
+#  -5       -4      -3   -2   -1
+# ["item1", "item2", 3, "x4", False]
+#  0         1       2   3    4
+
+# Indexed like strings
+# Like strings the indexing [:-3] or [0:-3] will return the items up to the -3 index
+```
+
+## Traversing Elements With For Loop
+
+```{r class.source="watch-out"}
+# for u in [2, 3, 5, 7]:
+#     print(u, end=" ")
+# outputs -> 2 3 5 7
+
+# for u in range(15, 1, -3): (**Not a list**)
+#     print(u, end=" ")
+# outputs -> 15 12 9 6 3
+```
+
+## Copying Lists
+
+```{r class.source="watch-out"}
+# list1 = [1,2,3,4]
+# list2 = list1   : both contain pointers to the same address in memory
+# lest1 is list2 -> True
+# list1.append(5)
+# print(list2) -> [1,2,3,4,5]   : because both point to the same location in memory
+
+# list2 = [x for x in list1]   : this will make a copy that doesn't contain the same pointer
+```
+
+## Comparing Lists
+
+```{r class.source="watch-out"}
+# Compare lists using the operators: >, >=, <, <=, ==, !=. Uses lexicographic ordering:
+# Which compares the first elements of the two lists; if they match, compare the second elements, and so on. **The elements must be of comparable classes
+# Comparing two lists of different lengths will NOT result in an error.
+# Also, Python stops comparing elements once the shorter list is exhausted, and the comparison then depends on the lengths of the lists. 
+
+# list1 = ["red", 3, "green"]
+# list2 = ["red", 3, "grey"]
+# list1 < list2 -> returns True
+
+# list3 = ["red", 5, "green"]
+# list3 > list1 -> returns True
+
+# list4 = [5, "red", "green"]
+# list3 < list4 -> returns TypeError : 'c' not supported between "red" and 5
+
+# ["red", 5, "green"] == [5, "red", "green"] -> returns False
+```
+
+## List Comprehension
+
+```{r class.source="watch-out"}
+# List comprehension gives a compact syntax for building lists.
+# [x for x in range(4)] returns -> [0, 1, 2, 3]
+
+# shaping the value that's added to a list
+# [x ** 2 for x in range(4)] returns -> [0, 1, 4, 9]
+#-----
+# lst = [2, 3, 5, 7, 11, 13]
+# [x ** 3 for x in lst] returns -> [8, 27, 125, 343, 1331, 2197]
+
+# conditions for what values are added to a list
+# [s[0] for s in ["red", "green", "blue"] if s <= "green"]
+# returns -> ['g', 'b']
+#-----
+# from IsPrime3 import *
+# [x for x in range(100) if isPrime(x)]
+# returns -> [2, 3, 5, 7, 11, 13, 17, 19, 23, . . .]
+
+# conditions for shaping the value that's added to a list
+# [1 if (x % 2 == 0) else 0 for x in range(0,10)]
+# returns -> [1, 0, 1, 0, 1, 0, 1, 0, 1, 0]
+```
+
+## Two dimensional lists
+
+```{r class.source="watch-out"}
+# **Creating 2d lists**
+# list = [ [1,2,3], [1,2,3] ] : creates a list containing 2 inner lists each with the integers 1,2,3
+
+# **Accessing 2d lists**
+# list[0] : returns the inner list in the first element of the outer list
+# lists[0][0] : returns the first element of the inner list in the first element of the outer list
+# this could go on for 3d, and 4d lists and so on
+```
+
+***
+
+# [**Output:**]{style="color:#0066FF;"}
+
+## Print Statements
 
 ```{r class.source="watch-out"}
 # print("characters/string", : Will output a string no matter the argument variable type
-#      sep = "character/s that go inbetween", : "" for no spaces
+#      sep = "character/s that go inbetween, : "" for no spaces
 #      end = "", : print without the implicit new line(stay on same line), can be replaced with any ending phrase
 ```
 
 ***
 
-# [**Date and times:**]{style="color:#3366FF;"}
+# [**Turtle graphics:**]{style="color:#0066FF;"}
 
-## Grabing, setting, and displaying time
+## Importing Turtle
+
+```{r class.source="watch-out"}
+# import turtle
+```
+
+## Introduction
+
+```{r class.source="watch-out"}
+# Turtle graphics was first developed as part of the children's programming language Logo in the late 1960's. It exemplifies OOP extremely well.
+
+# Turtles are just Python objects, so you can use any Python constructs in turtle programs: 
+# Selection, loops, recursion, etc
+
+# Turtles are objects that move about on a screen (window)
+
+# Various methods all you to direct the turtle's movement.
+
+# The turtle's tail can be up or down. When it is down, the turtle draws on the screen as it moves.
+```
+
+## The Turtle's Data
+
+```{r class.source="watch-out"}
+# Like all Python classes, the turtle class defines data and methods.
+# The data (attributes) of the turtle consists of:
+# Position   : denoted by its current x and y coordinates; the units are pixels.
+# Heading    : denoted by an angle in degrees. East in 0 degrees. north is 90 degrees; west is 180 degrees; south is 270 degrees.
+# Color      : the color can be set to 2^24 (~16.8 million) colors.
+# Width      : the width of the line drawn as the turtle moves (initially 2 pixels).
+# Down       : a Boolean attribute indicating whether the turtle's tail is down.
+```
+
+## Turtle Methods
+
+```{r class.source="watch-out"}
+# Many turtle methods are listed online; Google "python turtle graphics"
+# t = turtle.Turtle() : create a new Turtle object and open its window
+# t.home()            : move the turtle to (0,0), pointing east
+# t.pendown()         : lower the tail (t.down() also works)
+# t.penup()           : raises the tail (t.up() also works)
+# t.pensize(k)        : set line width to k pixels
+# t.setheading(d)     : change heading to direction d
+# t.left(d)           : turn left d degrees
+# t.right(d)          : turn right d degrees
+# t.speed(n)          : set how fast the turtle moves (0 . . . 10)
+# t.setx(n)           : set the turtle's x coordinate, leave y unchanged
+# t.sety(n)           : set the turtle's y coordinate, leave x unchanged
+# t.forward(n)        : move in the current direction n pixels
+# t.backward(n)       : move in the reverse direction n pixels
+# t.goto(x,y)         : move to coordinates (x,y)
+# t.postion()         : return the current position at a tuple (x,y)
+# t.heading()         : return the current direction (angle)
+# t.isdown()          : return True if the pen is down
+# t.pencolor(r,g,b)   : change the color to the specified RGB value or named color
+# t.write(s,font)     : write a message to the screen (you can specify font and size, e.g., "font=('Ariel',8,normal))"
+```
+
+## Keeping it on screen
+
+```{r class.source="watch-out"}
+# Because the window goes away immediately after the program terminates, it may be hard to see the result unless you delay things. You can use turtle.done() for that. Note tha this is a class method rather than an instance method; that means that you need to use the class name turtle.done(), not the instance leonardo.done().
+# turtle.done()      : make the screen persist until you close it
+
+#The turtle itself will appear on your screen as a small arrowhead. You can decide whether to show or hide the turtle.
+# t.hideturtle()     : make the turtle invisible
+# t.showturtle()     : make the turtle visible
+# t.isvisible()      : return True if the turtle is visible
+```
+
+## Colors
+
+```{r class.source="watch-out"}
+# Colors are in the RGB system, using a triple: (R,G,B). Each element in the triply is an intensity from 0 to 255, indicating the contribution of R (red), G (green), B (blue). For example:
+
+#     black        | (0,0,0)
+#     red          | (255,0,0)
+#     green        | (0,255,0)
+#     blue         | (0,0,255)
+#     gray         | (127,127,127)
+#     white        | (255,255,255)
+#     burnt orange | (255,125,25)
+
+
+# Turtles have two "colormodes" and you'll get an error if you try to do some things in the wrong mode. The modes are 1.0 and 255. In mode 255, use triples of range 0 <= c <= 255. In mode 1, use triples (percentages) in range 0 <= c <= 1
+
+# t.screen.colormode(255)  : 0 <= c <= 255
+# t.screen.colormode(1)    : 0 <= c <= 1
+
+
+# Hex colors are also acceptable
+# to do so the format is a string "#000000"
+# for example:
+# blue = "#002147"
+# obj.pencolor(blue)
+
+```
+* [Very nice color palette finding (HEX)](https://www.canva.com/colors/color-wheel/)
+* [Very nice color palette finding (RGB)](https://www.figma.com/color-wheel/)
+* [The named Python colors can be found here](https://python-graph-gallery.com/python-colors/)
+
+## Circles
+
+```{r class.source="watch-out"}
+# You can draw circles, arcs, and dots using these functions:
+# t.circle(r, ext, step) : draw a circle with radius r, ext (arc of circle drawn; 360 is entire circle), step (number of segments).
+# t.dot(d, color) draw a filled circle with diameter r and color
+
+# Note: the circle is not centered at the starting point. If you want that you could write:
+# def centeredCircle(ttl, r, x, y):
+#     """ Draw a circle with radius r centered at (x,y). """
+#     ttl.up()               # raise the pen
+#     angle = ttl.heading()  # save the curent heading
+#     ttl.setheading(0)      # set heading east
+#     ttl.goto(x,y-r)        # move to bottom of circle
+#     ttl.down()             # pen down
+#     ttl.circle(r)          # draw the circle
+#     ttl.up()               # pen up
+#     ttle.setheading(angle) # restore the heading
+```
+
+## Fill Areas
+
+```{r class.source="watch-out"}
+# t.fillcolor()   : sets the pen fill color
+# t.begin_fill()  : call this before filling a shape
+# t.end_fill()    : call to no longer keep filling
+# t.filling()     : return True if filling, False otherwise
+```
+
+## Dynamic window
+
+```{r class.source="watch-out"}
+# You can dynamically change the window dimensions
+# screen = turtle.Screen()
+# screen.setup(width = width, height = height)
+```
+
+## Saving your picture
+
+```{r class.source="watch-out"}
+# Python saves your picture as a postscript file, but your can convert it.
+# To save your picture as a jpeg, do the following:
+
+# from PIL import Image
+
+# def save_as_jpg(canvas,fileName):
+#     # save postscript image
+#     canvas.postscript(file = fileName + '.eps')
+#     # use PIL to convert to JPEG
+#     img = Image.open(fileName + '.eps')
+#     img.save(fileName + '.jpeg', 'jpeg')
+#
+# ts = turtle.getscreen()
+# tc = ts.getcanvas()
+# creates a postscript image file
+# substitute your own filename
+# tc.postscript(file="filename.eps")
+# converts to JPEG
+# save_as_jpg(tc,"filename")
+# turtle.done()
+```
+
+***
+
+# [**Date and times:**]{style="color:#0099FF;"}
+
+## Grabing, Setting, And Displaying Time
 
 ```{r class.source="watch-out"}
 #print(datetime.datetime.now()) : displays current time - datetime library
@@ -385,9 +1545,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ***
 
-# [**Creating programs:**]{style="color:#3366FF;"}
+# [**Creating programs:**]{style="color:#00CCFF;"}
 
-## Defining a program / code group
+## Defining A Program / Code Group
 
 ```{r class.source="watch-out"}
 # def Program_Name(): : Defines the program (traditionally named "main")
@@ -399,9 +1559,185 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ***
 
-# [**Advice on Programming:**]{style="color:#009999;"}
+# [**Objects and Classes:**]{style="color:#00FF99;"}
 
-## The process
+## Objects And Classes In Python
+
+```{r class.source="watch-out"}
+# **Python is object orientated (OO) language**
+# Basic idea:
+# conceptualize any problem in terms of a collection of "objects" -- data structures consisting of data fields and methods together with their interactions.
+# programming techniques may include:
+# data abstraction, encapsulation, messaging, modularity, polymorphism, and inheritance.
+```
+
+## Classes
+
+```{r class.source="watch-out"}
+# **Classes:**
+#   Defines a "type" of object
+#   can then create multiple objects (instances of the class.)
+#   Can be thought of a architectural drawing. It tells you how to construct the building
+#   An object (instance of the class) is the building created from the architect's plan
+
+
+# Predefined classes include ints, floats, strings, ect
+```
+
+## Objects
+
+```{r class.source="watch-out"}
+# **Objects:**
+#   Each object has:
+#   some data (attributes) that it maintains characterizing its current state;
+#   a set of actions (methods) that it can perform (or you can perform on it.)
+
+# User interactions:
+# users interact with objects by calling/or invoking its methods; this is called **method invocation**. And it is the only way a user should interact with an object
+# user invoking methods may do the following:
+#   update the state of the object,
+#   ask the object about its current state,
+#   compute some function of the state and externally provided values,
+#   some combination of these.
+
+
+# type(obj) : Returns the class of any object
+# id(obj) : Returns the unique identity (int number) of an object 
+#           essentially represents the object's memory address
+# obj1 is obj2 : returns True of both objects are the same object (point to the same place, same address), False otherwise
+```
+
+## Object Instantiation
+
+```{r class.source="watch-out"}
+# Mutability
+#   Yes : Instantiate a new object (new address)
+#   No :
+#       Is the object a string?
+#           Yes : Has an identical string already been interned?
+#               Yes : refer to that interned string (refer to same address)
+#               No : instantiate a new object
+#           No : Does an identical object already already exist as a shared object?
+#               Yes : Refer to that shared object
+#               No : Instantiate a new object
+```
+
+## Aside: Equality Of Objects
+
+```{r class.source="watch-out"}
+# Two senses in which objects can be equal
+# Equal contents; test with (==)
+# Literally the same object (same data in memory); test with (is)
+
+# For immutable object classes such as strings and numbers, these are the same
+
+# For user-defined classes, (object1 == object2) is False unless (object1 is object2)
+# or you've overloaded == by defining __eq__ for the class.
+# Example:
+# c1 = Circle()
+# c2 = Circle()
+# c1 == c2   : Returns False
+# c3 = c2
+# c2 == c3   : Returns True (Point to the same place in mem because literal same object)
+```
+
+## Attributes
+
+```{r class.source="watch-out"}
+# **Within a class method:**
+# self.attributeName = value -- basic way to set or change atributes
+# self.__attributeName = value -- makes the attribute private which makes it impossible to access outside the class
+#                                 without getter functions
+```
+
+## Special Methods 
+
+```{r class.source="watch-out"}
+# "Magic methods" (Methods in the form "__xyz__" that are not intended to be called directly)
+# But can technically still be called directly "abc".__add__("def) -> 'abcdef'
+
+# __init__ -- ClassName()   : instances of a class can still be created without this defined and will NOT give an error
+# __len__ -- len()
+# __str__ -- str()   : if an object is printed without this defined it will NOT give an error but rather print 
+#                      a string representation of the object that includes its class name and memory address
+# __lt__ -- <
+# __eq__ -- ==   : if not defined using == between two objects of the same class is the same as obj1 is obj2
+#__add__ +
+
+# More:
+# def __lt__(self, param(s)) -- less than method so two objects can be compared
+# def __le__(self, param(s)) -- less than or equal to method so two objects can be compared
+# def __eq__(self, param(s)) -- equal to method so two objects can be compared
+# Python can figure out the inverse of these functions so you don't need their pair but here they are
+# def __gt__(self, param(s))
+# def __ge__(self, param(s))
+```
+
+## Examples
+
+```{r class.source="watch-out"}
+# **Diagram examples:**
+#   Class: pokemon
+#   Object: Pikachu (the encapsulation of Pikachu) (its shell, container)
+#   Attributes: name-Pikachu, Type-Electric, Health-70
+#   Methods: attack(), dodge(), evolve()
+```
+
+## Creating Classes And Objects
+
+```{r class.source="watch-out"}
+# **Setting up a cass:**
+# file: name.py -- file name (code in the file defines a module and the name defines its name)
+# class className: -- (good idea to have the class name be the same as the name on the file)
+#     """Class description"""
+#     def __init__(self): -- Technically functions but are methods in the context of the class.
+#                            All classes need a method definition with the name "__init__(parameter list)" to use a custom constructor.
+#                            But instances of a class can be made without a custom __init__ method anyways.
+#                            This method definition gets called implicitly whenever an instance of the class
+#                            is created.
+#                            This method should also always include the "self" parameter
+#         ""Constructor for new className objects"""
+#         self.attributeName = value -- (self) refers to the object that's been created (attributeName) refers to to the name of the attribute
+#
+#     def __str__(self): -- Another special method like the __init__ method, this allows print() to work
+#                           for the object. It must return a string.
+#                           whatever is returned is what will be printed when an object of this type is printed
+#         return "string"
+#         
+#
+#     def methodName(self, otherParameters): -- all methods must have the "self" as the first parameter
+#         """Method description"""
+#         statement(s)
+#         . . .
+```
+
+## About Class Definitions
+
+```{r class.source="watch-out"}
+# initializer function creates new objects "def __init__(self, otherParameters)"
+# getter methods return (accessors)
+# setter methods change attributes (mutators)
+```
+
+## Using Classes And Objects
+
+```{r class.source="watch-out"}
+# **Using Classes:**
+# from fileName import *  -- import all the names of all the functions within the file "fileName"
+# obj1 = className() -- creates an object within the class (calls the __init__ method)
+# print(obj1) -- prints the object using the __str__ method within the class
+# obj1.methodName(arguments) -- calls the class method with the context of that specific object "obj1" and its attributes
+#                                 methods have the "self" parameter but are technically ignored in calling methods.
+# obj1.attributeName -- can directly access the object attributes (EXCEPT when they are private attributes)
+# obj1.getAttributeName() -- the method "getAttributename" would be better because we don't want people to access attributes 
+#                          freely (and necessary when dealing with private attributes)
+```
+
+***
+
+# [**Advice on Programming:**]{style="color:#00FF33;"}
+
+## The Process
 
 ```{r class.source="watch-out"}
 # Requirements >
@@ -409,6 +1745,45 @@ knitr::opts_chunk$set(echo = TRUE)
 # Implementation >
 # Verification >
 # Maintenance >
+```
+
+## Order Of Things In A .py File
+
+```{r class.source="watch-out"}
+# Header / Extended comment explaining what's in the file
+# Any imports required
+# Program constants
+# Function definitions
+# Main function definition
+# Call to main function
+
+# Include comments throughout
+```
+
+## Suggested formatting
+
+```{r class.source="watch-out"}
+# File: filename
+# Author: authorname
+# 
+# Date of start: 00/00/0000
+# Description: . . .
+
+
+# --------------------
+# Title Of Section
+# --------------------
+# code body
+```
+
+***
+
+# [**Error Documentation:**]{style="color:#33CC00;"}
+
+## Python's response to errors
+
+```{r class.source="watch-out"}
+# A syntax error in a program will be caught by Python and the code won't run at all.
 ```
 
 ***
