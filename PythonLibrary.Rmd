@@ -22,6 +22,8 @@ knitr::opts_chunk$set(echo = TRUE)
   }
 ```
 
+* [Library Github](https://github.com/NotActuallyJaxon/UT-Austin-Python-Code-Language/blob/main/PythonLibrary.Rmd)
+
 ***
 
 ## **Use word search shortcuts like CTRL+G to find specific functions faster**
