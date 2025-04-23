@@ -250,18 +250,24 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r class.source="watch-out"}
 # Numeric Types:
-# int() : Represents integers (e.g., 10, -5, 0).
-# float() : Represents floating-point numbers (e.g., 3.14, -0.5, 2.0).
+# int() : Represents integers (e.g., 10, -5, 0).   (Imutable)
+# float() : Represents floating-point numbers (e.g., 3.14, -0.5, 2.0).   (Imutable)
 # complex() " Represents complex numbers (e.g., 2+3j, 1j).
 
-# String Type:
+# String Type:   (Imutable)
 # str() : Represents text as a sequence of characters (e.g., "hello", "world").
 # Notice chr are not their own type but instead a string with a length of 1
 
-# List Type:
+# List Type:   (mutable)
 # list() : represents a series of elements ( [element1, element2, element3] )
 
-# Tuple Type:
+# Set Type:   (mutable)
+# set()
+
+# Dictionary Type:   (mutable)
+# dict()
+
+# Tuple Type:   (Imutable)
 # tuple() : tuple( [1, 2, 3] ) 3-tuple 
 # Tuples are like immutable lists of fixed size
 
@@ -388,11 +394,12 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Complex Operations
 ```{r class.source="watch-out"}
 # [Other operations]
+
 # round(x) : return nearest integer
 # round(value, decimal_places) : return the float rounded to b places after the decimal
 # max(vector) : return largest argument
 # min(vector) : return smallest argument
-# random.random() : generates random value [0,1) - random library
+
 # math.sqrt(x) : returns square root of x - math library
 # math.pi : returns approximation of pi - math library
 # math.floor(x) : return rounded down integer - math library
@@ -404,6 +411,8 @@ knitr::opts_chunk$set(echo = TRUE)
 # math.radians(180) : returns pi as it will convert from degree to radian - math library
 # math.acos(x) : arc sine, useful for calculating angles - math library
 # math.asin(x) : arc cosine, useful for calculating angles - math library
+
+# random.random() : generates random value [0,1) - random library
 # random.randint(a, b) : return a random integer between a and b inclusively - random library
 # random.randrange(a, b) : return a random integer between a and b-1 inclusively - random library
 ```
@@ -1051,6 +1060,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r class.source="watch-out"}
 # dictionaryEX = {2 : 4, 3 : 9, 4 : 16, 5 : 25}
+# dictionary = dict()
 ```
 
 ## Dictionary Manipulation
