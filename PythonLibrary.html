@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="C S 303E UT Austin" />
+<meta name="author" content="Python UT Austin" />
 
 
 <title>PythonLibrary</title>
@@ -1497,7 +1497,7 @@ border-radius: 0px;
 
 
 <h1 class="title toc-ignore">PythonLibrary</h1>
-<h4 class="author">C S 303E UT Austin</h4>
+<h4 class="author">Python UT Austin</h4>
 
 </div>
 
@@ -1550,8 +1550,8 @@ functions:</strong></span></h1>
 <div id="time-stamps" class="section level1">
 <h1><span style="color:#FF6600;"><strong>Time
 Stamps:</strong></span></h1>
-<div id="recording-how-long-code-takes-to-run" class="section level2">
-<h2>Recording how long code takes to run</h2>
+<div id="recording-code-run-time" class="section level2">
+<h2>Recording Code Run Time</h2>
 <pre class="r watch-out"><code># tStart = time.clock()
 # tEnd = time.clock()
 # timeElapsed = tEnd - tStart</code></pre>
@@ -1577,21 +1577,21 @@ Stamps:</strong></span></h1>
 # os.listdir() : returns every file in the working directory as a list</code></pre>
 </div>
 <div id="structure-of-a-directory" class="section level2">
-<h2>Structure of a directory</h2>
+<h2>Structure Of A Directory</h2>
 <pre class="r watch-out"><code># C:\Users\username\OneDrive\UT Files\Spring 2025\C S 303E\Assignments\test.py
 # C:   : C drive
 # \section\section within the last section\ so on..
 # test.py   : the file to be opened</code></pre>
 </div>
 <div id="managing-files-in-python" class="section level2">
-<h2>Managing Files in Python</h2>
+<h2>Managing Files In Python</h2>
 <pre class="r watch-out"><code># open : establish a connection to the file and associate a local file *handle* with a physical (*handle* can be thought of the local name of the file).
 # close : terminates the connection to the file.
 # read : input data from the file into your program.
 # write : output data from your program to a file.</code></pre>
 </div>
 <div id="permissible-modes-for-files" class="section level2">
-<h2>Permissible modes for files:</h2>
+<h2>Permissible Modes For Files:</h2>
 <pre class="r watch-out"><code># Mode : Description
 # &quot;r&quot;  : Open for reading
 # &quot;w&quot;  : Open for writing. If the file already exists the old contents are overwritten
@@ -1603,7 +1603,7 @@ Stamps:</strong></span></h1>
 # This semester we probably won&#39;t be using the binary modes.</code></pre>
 </div>
 <div id="opening-a-file" class="section level2">
-<h2>Opening a File</h2>
+<h2>Opening A File</h2>
 <pre class="r watch-out"><code># Before your program can access the data in a file, it is necessary to open it. This returns a file object, also called a &quot;handle,&quot; that you can use within your program to access the file.
 # It also informs the system how your intend for your program to interact with the file, the &quot;mode,&quot; e.g., read or white
 
@@ -1618,7 +1618,7 @@ Stamps:</strong></span></h1>
 # This line of code created a file named MyNewFile in the current working directory containing the line of text &quot;This is a test&quot;</code></pre>
 </div>
 <div id="closing-a-file" class="section level2">
-<h2>Closing a File</h2>
+<h2>Closing A File</h2>
 <pre class="r watch-out"><code># fileHandle.close()
 # All files are closed by the OS when your program terminates. Still, it is very important to close any file you open in Python.
 # -The file will be locked from access by any other program while you have it open;
@@ -1627,7 +1627,7 @@ Stamps:</strong></span></h1>
 # -It&#39;s just good programming practice.</code></pre>
 </div>
 <div id="readingwriting-a-file" class="section level2">
-<h2>Reading/Writing a File</h2>
+<h2>Reading/Writing A File</h2>
 <pre class="r watch-out"><code># There are various Python functions for reading data from or writing data to a file, given the file handle in variable fn.
 # Function          Description
 #-----------------------------------------------------------------------------------
@@ -1654,8 +1654,8 @@ Stamps:</strong></span></h1>
 
 # os.path.isfile(&quot;filename.fileType&quot;) : returns True if that file is in the current working directory (os module)</code></pre>
 </div>
-<div id="aside-redirecting-output" class="section level2">
-<h2>Aside: redirecting output</h2>
+<div id="aside-aedirecting-output" class="section level2">
+<h2>Aside: Aedirecting Output</h2>
 <pre class="r watch-out"><code># There&#39;s another way to get the output of a program into a file. 
 # When your file does a print, it sends the output to a standard out, which is typically the terminal.
 # You can redirect the output to a file, using &gt; filename. Anything that would have been printed on the screen goes into a file instead.
@@ -2140,7 +2140,7 @@ Expressions:</strong></span></h1>
 <h1><span style="color:#CC00FF;"><strong>String Field Format
 Function:</strong></span></h1>
 <div id="formatting-strings-and-numbers" class="section level2">
-<h2>Formatting Strings and Numbers</h2>
+<h2>Formatting Strings And Numbers</h2>
 <pre class="r watch-out"><code># format (value, format-string) : generates a string representation of value formatted as indicated by the format-string
 # format(numerical_value, &quot;x.nf&quot;) : creates a string representing a float(&quot;f) right justified in a field of width x(aligned right automatically) with n decimal digits 
 # format(numerical_value, &quot;x.ne&quot;) : scientific notation
@@ -2165,7 +2165,7 @@ Function:</strong></span></h1>
 <div id="stringscharacters" class="section level1">
 <h1><span style="color:#CC00FF;"><strong>Strings/Characters:</strong></span></h1>
 <div id="the-str-class" class="section level2">
-<h2>The str Class</h2>
+<h2>The Str Class</h2>
 <pre class="r watch-out"><code># Strings are actually sequences of characters
 # Strings are immutable, meaning you can&#39;t change them after they are created</code></pre>
 </div>
@@ -2257,7 +2257,7 @@ Function:</strong></span></h1>
 # string.count(string2)   : returns number of non-overlapping occurrences of string2 in string</code></pre>
 </div>
 <div id="in-and-not-in-operators" class="section level2">
-<h2>in and not in operators</h2>
+<h2>In And Not In Operators</h2>
 <pre class="r watch-out"><code># Allow check wether one string is a *contiquous* substring of another
 # s1 = &quot;xyz&quot;
 # s2 = &quot;abcxyzrls&quot;
@@ -2341,12 +2341,12 @@ Function:</strong></span></h1>
 <div id="tuples" class="section level1">
 <h1><span style="color:#0033FF;"><strong>Tuples:</strong></span></h1>
 <div id="what-are-tuples" class="section level2">
-<h2>What are tuples</h2>
+<h2>What Are Tuples</h2>
 <pre class="r watch-out"><code># Tuples, like strings and lists, are sequences and inherit various functions from sequences. Like strings, but unlike lists, they are immutable.
 # Refer to sequence operations for those functions</code></pre>
 </div>
 <div id="creating-tuples" class="section level2">
-<h2>Creating tuples</h2>
+<h2>Creating Tuples</h2>
 <pre class="r watch-out"><code># tuple() : creates an empty tuple
 # t1 = () : special syntax
 
@@ -2354,19 +2354,19 @@ Function:</strong></span></h1>
 # t3 = tuple([1]) -&gt; (1,)
 # t4 = (2,) -&gt; (2,)</code></pre>
 </div>
-<div id="converting-tuples" class="section level2">
-<h2>Converting tuples</h2>
+<div id="converting-ruples" class="section level2">
+<h2>Converting Ruples</h2>
 <pre class="r watch-out"><code># tuple = tuple( [1, 2, 3, 4, 5] ) : convert from list to tuple
 # listi = list(tuple) : convert from tuple to list</code></pre>
 </div>
-<div id="returning-tuples" class="section level2">
-<h2>Returning tuples</h2>
+<div id="returning-ruples" class="section level2">
+<h2>Returning Ruples</h2>
 <pre class="r watch-out"><code># Functions can return tuples just as they can return other values. Specifically, if they return multiple values, they are really returning a tuple
 
 # return x1, x2, x3 : returning a 3-tuple</code></pre>
 </div>
 <div id="additional-set-functions" class="section level2">
-<h2>Additional set functions</h2>
+<h2>Additional Set Functions</h2>
 <pre class="r watch-out"><code># Like lists, sets are mutable. These two methods alter the set. 
 # Function      Description
 #-----------------------------------
@@ -2374,7 +2374,7 @@ Function:</strong></span></h1>
 # s.remove(e)   remove e from s</code></pre>
 </div>
 <div id="subset-alternate-syntax" class="section level2">
-<h2>Subset: Alternate syntax</h2>
+<h2>Subset: Alternate Syntax</h2>
 <pre class="r watch-out"><code># Function   Description
 #--------------------------
 # s1 &lt;= s2   s1 is a subset of s2
@@ -2397,7 +2397,7 @@ Function:</strong></span></h1>
 <div id="dictionaries" class="section level1">
 <h1><span style="color:#0033FF;"><strong>Dictionaries:</strong></span></h1>
 <div id="what-are-dictionaries" class="section level2">
-<h2>What are Dictionaries</h2>
+<h2>What Are Dictionaries</h2>
 <pre class="r watch-out"><code># A Python dictionary stores a set of key/value pairs. It enables very fast retrieval, deletion and updating of values using the keys.
 
 # Imagine a regular dictionary; associated with each word is a definition.
@@ -2422,19 +2422,19 @@ Function:</strong></span></h1>
 # del dictionaryName [key]</code></pre>
 </div>
 <div id="looping-over-a-dictionary" class="section level2">
-<h2>Looping over a dictionary</h2>
+<h2>Looping Over A Dictionary</h2>
 <pre class="r watch-out"><code># The most common way to iterate over a dictionary is to loop over the keys,
 
 # for key in dictionaryName:
 #    &lt;body&gt;</code></pre>
 </div>
 <div id="comparing-dictionaries" class="section level2">
-<h2>Comparing dictionaries</h2>
+<h2>Comparing Dictionaries</h2>
 <pre class="r watch-out"><code># Notice that dictionary keys (like sets) are not ordered. Two dictionaries are equal if they contain the same pairs:
 # {&#39;Susie&#39;:14, &#39;Frank&#39;:87} == {&#39;Frank&#39;:87, &#39;Susie&#39;:14} -&gt; returns True</code></pre>
 </div>
 <div id="dictionary-functions" class="section level2">
-<h2>Dictionary functions</h2>
+<h2>Dictionary Functions</h2>
 <pre class="r watch-out"><code># The following sequence functions work for dictionaries
 # Function            Description
 #-----------------------------------------------------------
@@ -2479,13 +2479,13 @@ Function:</strong></span></h1>
 <div id="sets" class="section level1">
 <h1><span style="color:#0033FF;"><strong>Sets:</strong></span></h1>
 <div id="what-are-sets" class="section level2">
-<h2>What are sets</h2>
+<h2>What Are Sets</h2>
 <pre class="r watch-out"><code># Sets are similar to lists except:
 # -sets don&#39;t store duplicate elements;
 # -sets are not ordered.</code></pre>
 </div>
 <div id="creating-sets" class="section level2">
-<h2>Creating sets</h2>
+<h2>Creating Sets</h2>
 <pre class="r watch-out"><code># s1 = set() : creates an empty set
 # s1 -&gt; returns &#39;set()&#39; **odd syntax**
 
@@ -2497,7 +2497,7 @@ Function:</strong></span></h1>
 # set( (&quot;abc&quot;, 4, 2.3) ) -&gt; returns {2.3, &#39;abc&#39;, 4} : set from tuple</code></pre>
 </div>
 <div id="comparing-sets" class="section level2">
-<h2>Comparing sets</h2>
+<h2>Comparing Sets</h2>
 <pre class="r watch-out"><code># {&#39;d&#39;, &#39;a&#39;, &#39;c&#39;, &#39;b&#39;} == {&#39;a&#39;, &#39;c&#39;, &#39;b&#39;, &#39;d&#39;} -&gt; returns True **order doesn&#39;t matter**</code></pre>
 <hr />
 </div>
@@ -2578,13 +2578,13 @@ Function:</strong></span></h1>
 <pre class="r watch-out"><code># random.shuffle(list1)   : shuffles the items in list1 randomly (random module)</code></pre>
 </div>
 <div id="splitting-strings-into-lists" class="section level2">
-<h2>Splitting Strings into Lists</h2>
+<h2>Splitting Strings Into Lists</h2>
 <pre class="r watch-out"><code># string.split(&quot;,&quot;)   : if string = &quot;abc, def , ghi&quot; returns -&gt; [&#39;abc&#39;, &#39; def &#39;, &#39; ghi&#39;]
 # string.split()   : split on whitespace
 # string.split(&quot;/&quot;)   : split on slash</code></pre>
 </div>
 <div id="indexing-through-lists" class="section level2">
-<h2>Indexing through lists</h2>
+<h2>Indexing Through Lists</h2>
 <pre class="r watch-out"><code># Warning indexes must be integers (NOT floats like 4.0 or -3.0)
 
 # Lists can be indexed forward and backward (+ and -)
@@ -2658,7 +2658,7 @@ Function:</strong></span></h1>
 # returns -&gt; [1, 0, 1, 0, 1, 0, 1, 0, 1, 0]</code></pre>
 </div>
 <div id="two-dimensional-lists" class="section level2">
-<h2>Two dimensional lists</h2>
+<h2>Two Dimensional Lists</h2>
 <pre class="r watch-out"><code># **Creating 2d lists**
 # list = [ [1,2,3], [1,2,3] ] : creates a list containing 2 inner lists each with the integers 1,2,3
 
@@ -2733,7 +2733,7 @@ graphics:</strong></span></h1>
 # t.write(s,font)     : write a message to the screen (you can specify font and size, e.g., &quot;font=(&#39;Ariel&#39;,8,normal))&quot;</code></pre>
 </div>
 <div id="keeping-it-on-screen" class="section level2">
-<h2>Keeping it on screen</h2>
+<h2>Keeping It On Screen</h2>
 <pre class="r watch-out"><code># Because the window goes away immediately after the program terminates, it may be hard to see the result unless you delay things. You can use turtle.done() for that. Note tha this is a class method rather than an instance method; that means that you need to use the class name turtle.done(), not the instance leonardo.done().
 # turtle.done()      : make the screen persist until you close it
 
@@ -2801,13 +2801,13 @@ Python colors can be found here</a></li>
 # t.filling()     : return True if filling, False otherwise</code></pre>
 </div>
 <div id="dynamic-window" class="section level2">
-<h2>Dynamic window</h2>
+<h2>Dynamic Window</h2>
 <pre class="r watch-out"><code># You can dynamically change the window dimensions
 # screen = turtle.Screen()
 # screen.setup(width = width, height = height)</code></pre>
 </div>
 <div id="saving-your-picture" class="section level2">
-<h2>Saving your picture</h2>
+<h2>Saving Your Picture</h2>
 <pre class="r watch-out"><code># Python saves your picture as a postscript file, but your can convert it.
 # To save your picture as a jpeg, do the following:
 
@@ -3031,7 +3031,7 @@ Programming:</strong></span></h1>
 # Include comments throughout</code></pre>
 </div>
 <div id="suggested-formatting" class="section level2">
-<h2>Suggested formatting</h2>
+<h2>Suggested Formatting</h2>
 <pre class="r watch-out"><code># File: filename
 # Author: authorname
 # 
@@ -3050,7 +3050,7 @@ Programming:</strong></span></h1>
 <h1><span style="color:#33CC00;"><strong>Error
 Documentation:</strong></span></h1>
 <div id="pythons-response-to-errors" class="section level2">
-<h2>Python’s response to errors</h2>
+<h2>Python’s Response To Errors</h2>
 <pre class="r watch-out"><code># A syntax error in a program will be caught by Python and the code won&#39;t run at all.</code></pre>
 <hr />
 </div>

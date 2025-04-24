@@ -1,6 +1,6 @@
 ---
 title: "PythonLibrary"
-author: "C S 303E UT Austin"
+author: "Python UT Austin"
 output:
   html_document: 
     theme: darkly
@@ -61,7 +61,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # [**Time Stamps:**]{style="color:#FF6600;"}
 
-## Recording how long code takes to run
+## Recording Code Run Time
 
 ```{r class.source="watch-out"}
 # tStart = time.clock()
@@ -95,7 +95,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # os.listdir() : returns every file in the working directory as a list
 ```
 
-## Structure of a directory
+## Structure Of A Directory
 
 ```{r class.source="watch-out"}
 # C:\Users\username\OneDrive\UT Files\Spring 2025\C S 303E\Assignments\test.py
@@ -104,7 +104,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # test.py   : the file to be opened
 ```
 
-## Managing Files in Python
+## Managing Files In Python
 
 ```{r class.source="watch-out"}
 # open : establish a connection to the file and associate a local file *handle* with a physical (*handle* can be thought of the local name of the file).
@@ -113,7 +113,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # write : output data from your program to a file.
 ```
 
-## Permissible modes for files:
+## Permissible Modes For Files:
 
 ```{r class.source="watch-out"}
 # Mode : Description
@@ -127,7 +127,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # This semester we probably won't be using the binary modes.
 ```
 
-## Opening a File
+## Opening A File
 
 ```{r class.source="watch-out"}
 # Before your program can access the data in a file, it is necessary to open it. This returns a file object, also called a "handle," that you can use within your program to access the file.
@@ -144,7 +144,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # This line of code created a file named MyNewFile in the current working directory containing the line of text "This is a test"
 ```
 
-## Closing a File
+## Closing A File
 
 ```{r class.source="watch-out"}
 # fileHandle.close()
@@ -155,7 +155,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # -It's just good programming practice.
 ```
 
-## Reading/Writing a File
+## Reading/Writing A File
 
 ```{r class.source="watch-out"}
 # There are various Python functions for reading data from or writing data to a file, given the file handle in variable fn.
@@ -189,7 +189,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # os.path.isfile("filename.fileType") : returns True if that file is in the current working directory (os module)
 ```
 
-## Aside: redirecting output
+## Aside: Aedirecting Output
 
 ```{r class.source="watch-out"}
 # There's another way to get the output of a program into a file. 
@@ -736,7 +736,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # [**String Field Format Function:**]{style="color:#CC00FF;"}
 
-## Formatting Strings and Numbers
+## Formatting Strings And Numbers
 
 ```{r class.source="watch-out"}
 # format (value, format-string) : generates a string representation of value formatted as indicated by the format-string
@@ -763,7 +763,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # [**Strings/Characters:**]{style="color:#CC00FF;"}
 
-## The str Class
+## The Str Class
 
 ```{r class.source="watch-out"}
 # Strings are actually sequences of characters
@@ -877,7 +877,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # string.count(string2)   : returns number of non-overlapping occurrences of string2 in string
 ```
 
-## in and not in operators
+## In And Not In Operators
 
 ```{r class.source="watch-out"}
 # Allow check wether one string is a *contiquous* substring of another
@@ -976,14 +976,14 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # [**Tuples:**]{style="color:#0033FF;"}
 
-## What are tuples
+## What Are Tuples
 
 ```{r class.source="watch-out"}
 # Tuples, like strings and lists, are sequences and inherit various functions from sequences. Like strings, but unlike lists, they are immutable.
 # Refer to sequence operations for those functions
 ```
 
-## Creating tuples
+## Creating Tuples
 
 ```{r class.source="watch-out"}
 # tuple() : creates an empty tuple
@@ -994,14 +994,14 @@ knitr::opts_chunk$set(echo = TRUE)
 # t4 = (2,) -> (2,)
 ```
 
-## Converting tuples
+## Converting Ruples
 
 ```{r class.source="watch-out"}
 # tuple = tuple( [1, 2, 3, 4, 5] ) : convert from list to tuple
 # listi = list(tuple) : convert from tuple to list
 ```
 
-## Returning tuples
+## Returning Ruples
 
 ```{r class.source="watch-out"}
 # Functions can return tuples just as they can return other values. Specifically, if they return multiple values, they are really returning a tuple
@@ -1009,7 +1009,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # return x1, x2, x3 : returning a 3-tuple
 ```
 
-## Additional set functions
+## Additional Set Functions
 
 ```{r class.source="watch-out"}
 # Like lists, sets are mutable. These two methods alter the set. 
@@ -1019,7 +1019,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # s.remove(e)   remove e from s
 ```
 
-## Subset: Alternate syntax
+## Subset: Alternate Syntax
 
 ```{r class.source="watch-out"}
 # Function   Description
@@ -1046,7 +1046,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # [**Dictionaries:**]{style="color:#0033FF;"}
 
-## What are Dictionaries
+## What Are Dictionaries
 
 ```{r class.source="watch-out"}
 # A Python dictionary stores a set of key/value pairs. It enables very fast retrieval, deletion and updating of values using the keys.
@@ -1077,7 +1077,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # del dictionaryName [key]
 ```
 
-## Looping over a dictionary
+## Looping Over A Dictionary
 
 ```{r class.source="watch-out"}
 # The most common way to iterate over a dictionary is to loop over the keys,
@@ -1086,14 +1086,14 @@ knitr::opts_chunk$set(echo = TRUE)
 #    <body>
 ```
 
-## Comparing dictionaries
+## Comparing Dictionaries
 
 ```{r class.source="watch-out"}
 # Notice that dictionary keys (like sets) are not ordered. Two dictionaries are equal if they contain the same pairs:
 # {'Susie':14, 'Frank':87} == {'Frank':87, 'Susie':14} -> returns True
 ```
 
-## Dictionary functions
+## Dictionary Functions
 
 ```{r class.source="watch-out"}
 # The following sequence functions work for dictionaries
@@ -1144,7 +1144,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # [**Sets:**]{style="color:#0033FF;"}
 
-## What are sets
+## What Are Sets
 
 ```{r class.source="watch-out"}
 # Sets are similar to lists except:
@@ -1152,7 +1152,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # -sets are not ordered.
 ```
 
-## Creating sets
+## Creating Sets
 
 ```{r class.source="watch-out"}
 # s1 = set() : creates an empty set
@@ -1166,7 +1166,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # set( ("abc", 4, 2.3) ) -> returns {2.3, 'abc', 4} : set from tuple
 ```
 
-## Comparing sets
+## Comparing Sets
 
 ```{r class.source="watch-out"}
 # {'d', 'a', 'c', 'b'} == {'a', 'c', 'b', 'd'} -> returns True **order doesn't matter**
@@ -1262,7 +1262,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # random.shuffle(list1)   : shuffles the items in list1 randomly (random module)
 ```
 
-## Splitting Strings into Lists
+## Splitting Strings Into Lists
 
 ```{r class.source="watch-out"}
 # string.split(",")   : if string = "abc, def , ghi" returns -> ['abc', ' def ', ' ghi']
@@ -1270,7 +1270,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # string.split("/")   : split on slash
 ```
 
-## Indexing through lists
+## Indexing Through Lists
 
 ```{r class.source="watch-out"}
 # Warning indexes must be integers (NOT floats like 4.0 or -3.0)
@@ -1354,7 +1354,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # returns -> [1, 0, 1, 0, 1, 0, 1, 0, 1, 0]
 ```
 
-## Two dimensional lists
+## Two Dimensional Lists
 
 ```{r class.source="watch-out"}
 # **Creating 2d lists**
@@ -1440,7 +1440,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # t.write(s,font)     : write a message to the screen (you can specify font and size, e.g., "font=('Ariel',8,normal))"
 ```
 
-## Keeping it on screen
+## Keeping It On Screen
 
 ```{r class.source="watch-out"}
 # Because the window goes away immediately after the program terminates, it may be hard to see the result unless you delay things. You can use turtle.done() for that. Note tha this is a class method rather than an instance method; that means that you need to use the class name turtle.done(), not the instance leonardo.done().
@@ -1512,7 +1512,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # t.filling()     : return True if filling, False otherwise
 ```
 
-## Dynamic window
+## Dynamic Window
 
 ```{r class.source="watch-out"}
 # You can dynamically change the window dimensions
@@ -1520,7 +1520,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # screen.setup(width = width, height = height)
 ```
 
-## Saving your picture
+## Saving Your Picture
 
 ```{r class.source="watch-out"}
 # Python saves your picture as a postscript file, but your can convert it.
@@ -1772,7 +1772,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # Include comments throughout
 ```
 
-## Suggested formatting
+## Suggested Formatting
 
 ```{r class.source="watch-out"}
 # File: filename
@@ -1792,7 +1792,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # [**Error Documentation:**]{style="color:#33CC00;"}
 
-## Python's response to errors
+## Python's Response To Errors
 
 ```{r class.source="watch-out"}
 # A syntax error in a program will be caught by Python and the code won't run at all.
