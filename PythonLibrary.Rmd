@@ -274,10 +274,10 @@ knitr::opts_chunk$set(echo = TRUE)
 # Binary Types:
 # bytes : Represents an immutable sequence of bytes.
 
-# Boolean Type:
+# Boolean Type:   (Imutable)
 # bool : Represents truth values, either True or False.
 
-# None Type:
+# None Type:   (Imutable)
 # NoneType : Represents the absence of a value.
 ```
 
@@ -698,6 +698,70 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ***
 
+# [**Search And Sort:**]{style="color:#CC33CC;"}
+
+## Selection Sort
+
+```{r class.source="watch-out"}
+# Selection sort works by repeatedly finding the smallest element from the unsorted portion and swapping it with the first unsorted element
+
+# def selection_sort(arr):
+#     n = len(arr)
+#     for i in range(n):
+#         min_index = i
+#         for j in range(i+1, n):
+#             if arr[j] < arr[min_index]:
+#                 min_index = j
+#         arr[i], arr[min_index] = arr[min_index], arr[i]
+```
+
+## Insertion Sort
+
+```{r class.source="watch-out"}
+# Insertion sort works by taking one element at a time and inserting it into its correct position in the sorted portion
+
+# def insertion_sort(arr):
+#     for i in range(1, len(arr)):
+#         key = arr[i]
+#         j = i - 1
+#         while j >= 0 and arr[j] > key:
+#             arr[j + 1] = arr[j]
+#             j -= 1
+#         arr[j + 1] = key
+```
+
+## Binary Search
+
+```{r class.source="watch-out"}
+# Binary search is a very efficient search algorithm, but it requires the list to be sorted. It works by repeatedly dividing the list in half until the target is found
+
+# def binary_search(arr, target):
+#     left, right = 0, len(arr) - 1
+#     while left <= right:
+#         mid = (left + right) // 2
+#         if arr[mid] == target:
+#             return mid
+#         elif arr[mid] < target:
+#             left = mid + 1
+#         else:
+#             right = mid - 1
+#     return -1  # Element not found
+```
+
+## Linear Search
+
+```{r class.source="watch-out"}
+# Linear search works by checking each element one by one until the target is found
+
+# def linear_search(arr, target):
+#     for i in range(len(arr)):
+#         if arr[i] == target:
+#             return i
+#     return -1  # Element not found
+```
+
+***
+
 # [**Recursion:**]{style="color:#CC33CC;"}
 
 ## What Is Recursion
@@ -992,6 +1056,8 @@ knitr::opts_chunk$set(echo = TRUE)
 # t2 = tupple( [1,2,3] ) -> (1, 2, 3)
 # t3 = tuple([1]) -> (1,)
 # t4 = (2,) -> (2,)
+# t5 = 2, -> (2,)
+# t6 = 1,2,3 -> (1, 2, 3)
 ```
 
 ## Converting Ruples
@@ -1007,39 +1073,6 @@ knitr::opts_chunk$set(echo = TRUE)
 # Functions can return tuples just as they can return other values. Specifically, if they return multiple values, they are really returning a tuple
 
 # return x1, x2, x3 : returning a 3-tuple
-```
-
-## Additional Set Functions
-
-```{r class.source="watch-out"}
-# Like lists, sets are mutable. These two methods alter the set. 
-# Function      Description
-#-----------------------------------
-# s.add(e)      add e to set s
-# s.remove(e)   remove e from s
-```
-
-## Subset: Alternate Syntax
-
-```{r class.source="watch-out"}
-# Function   Description
-#--------------------------
-# s1 <= s2   s1 is a subset of s2
-# s1 < s2    s1 is a proper subset of s2
-# s2 >= s1   s2 is a superset of s1
-# s2 > s1    s2 is a proper superset of s1
-```
-
-## Set Operations
-
-```{r class.source="watch-out"}
-# The following operations take two sets and return a new set.
-# Function                     Alternate Syntax    Description
-#---------------------------------------------------------------------------------------
-# s1.union(s2)                 s1 | s2             elements in s1 or s2
-# s1.intersection(s2)          s2 & s2             elements in both s1 and s2
-# s1.difference(s2)            s1 - s2             elements in s1 but not in s2
-# s1.symmetric_difference(s2)  s1 ^ s2             elements in s1 or s2, but not both
 ```
 
 ***
@@ -1059,8 +1092,11 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Creating Dictionaries
 
 ```{r class.source="watch-out"}
-# dictionaryEX = {2 : 4, 3 : 9, 4 : 16, 5 : 25}
-# dictionary = dict()
+# dictionary0 = {2 : 4, 3 : 9, 4 : 16, 5 : 25}
+
+# dictionary1 = dict() : empty dictionary
+
+# dictionary2 = (message = "hello world!", secondKey = "some other value") : another way to directly instantiate the keys and values
 ```
 
 ## Dictionary Manipulation
@@ -1091,6 +1127,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r class.source="watch-out"}
 # Notice that dictionary keys (like sets) are not ordered. Two dictionaries are equal if they contain the same pairs:
 # {'Susie':14, 'Frank':87} == {'Frank':87, 'Susie':14} -> returns True
+
+# **Cannot use >< -> TypeError**
 ```
 
 ## Dictionary Functions
@@ -1164,6 +1202,8 @@ knitr::opts_chunk$set(echo = TRUE)
 # set("abcda") -> returns {'d', 'a', 'c', 'b'} : set from string
 
 # set( ("abc", 4, 2.3) ) -> returns {2.3, 'abc', 4} : set from tuple
+
+# {i for i in range(10)} -> returns {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
 ```
 
 ## Comparing Sets
@@ -1172,6 +1212,46 @@ knitr::opts_chunk$set(echo = TRUE)
 # {'d', 'a', 'c', 'b'} == {'a', 'c', 'b', 'd'} -> returns True **order doesn't matter**
 ```
 
+## Subsets
+
+```{r class.source="watch-out"}
+# set_a.issubset(set_b) : Checking if set_a is a subset of set_b
+# set_b.issuperset(set_a) : Checking if set_b is a superset of set_a
+# set_a.isdisjoint(set_c) : Checking if set_a and set_c are disjoint (i.e., no common elements)
+```
+
+## Subset: Alternate Syntax
+
+```{r class.source="watch-out"}
+# Function   Description
+#--------------------------
+# s1 <= s2   s1 is a subset of s2
+# s1 < s2    s1 is a proper subset of s2
+# s2 >= s1   s2 is a superset of s1
+# s2 > s1    s2 is a proper superset of s1
+```
+
+## Additional Set Functions
+
+```{r class.source="watch-out"}
+# Like lists, sets are mutable. These two methods alter the set. 
+# Function      Description
+#-----------------------------------
+# s.add(e)      add e to set s
+# s.remove(e)   remove e from s
+```
+
+## Set Operations
+
+```{r class.source="watch-out"}
+# The following operations take two sets and return a new set.
+# Function                     Alternate Syntax    Description
+#---------------------------------------------------------------------------------------
+# s1.union(s2)                 s1 | s2             elements in s1 or s2
+# s1.intersection(s2)          s1 & s2             elements in both s1 and s2
+# s1.difference(s2)            s1 - s2             elements in s1 but not in s2
+# s1.symmetric_difference(s2)  s1 ^ s2             elements in s1 or s2, but not both
+```
 
 ***
 
@@ -1332,6 +1412,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ## List Comprehension
 
 ```{r class.source="watch-out"}
+# **Important** comprehension can be used for many things including sets, tuples, and dictionaries
+
 # List comprehension gives a compact syntax for building lists.
 # [x for x in range(4)] returns -> [0, 1, 2, 3]
 
